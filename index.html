@@ -3,12 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>永久楽園 · Культ Вечного Рая Доумы</title>
-    <!-- Шрифты: Unbounded (современный) и Merriweather (классический) -->
+    <title>Культ Вечного Рая - Официальный сайт</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Unbounded:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome 6 -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
@@ -18,67 +16,55 @@
         }
 
         :root {
-            --crimson: #4a0409;        /* глубокая кровь */
-            --altar: #641c1c;           /* алтарь */
-            --embers: #b3442c;          /* тлеющие угли */
-            --golden-prayer: #e8b87a;   /* золото молитв */
-            --lotus: #fae6d1;            /* лепестки лотоса */
-            --sacrifice: #c98b5e;        /* жертвенный песок */
-            --glass-bg: rgba(70, 10, 15, 0.8);
-            --glass-border: rgba(232, 184, 122, 0.3);
-            --border-glow: 1px solid rgba(232, 184, 122, 0.3);
-            --card-radius: 40px;
-            
-            --font-display: 'Unbounded', sans-serif;
+            --deep-blue: #0a2f44;      /* спокойный глубокий синий */
+            --ocean: #1e4a6e;          /* океанская гладь */
+            --light-blue: #7ab3c8;      /* светлый акцент */
+            --sand: #e8dcc0;            /* песочный для текста */
+            --gold-light: #c9a87b;      /* золото для акцентов */
+            --glass-bg: rgba(10, 47, 68, 0.85);
+            --glass-border: rgba(122, 179, 200, 0.35);
+            --border-glow: 1px solid rgba(122, 179, 200, 0.4);
+            --card-radius: 32px;
+            --font-display: 'Inter', sans-serif;
             --font-text: 'Merriweather', serif;
         }
 
         body {
-            background: var(--crimson);
-            color: var(--lotus);
+            background: var(--deep-blue);
+            color: var(--sand);
             font-family: var(--font-text);
             font-weight: 300;
-            line-height: 1.7;
+            line-height: 1.6;
             min-height: 100vh;
             position: relative;
-            background-image: 
-                radial-gradient(circle at 20% 30%, rgba(180, 68, 44, 0.15) 0%, transparent 40%),
-                radial-gradient(circle at 80% 70%, rgba(232, 184, 122, 0.1) 0%, transparent 40%);
+            background-image: radial-gradient(circle at 20% 30%, rgba(30, 74, 110, 0.4) 0%, transparent 50%);
         }
 
-        /* Анимированные лепестки (вместо капель) */
-        .petal {
+        /* Лёгкие анимированные волны вместо капель */
+        .wave {
             position: fixed;
-            top: -20px;
-            width: 15px;
-            height: 15px;
-            background: rgba(232, 184, 122, 0.25);
-            border-radius: 50% 0 50% 0;
-            transform: rotate(45deg);
-            animation: flutter 12s linear infinite;
-            z-index: -1;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             pointer-events: none;
-        }
-        @keyframes flutter {
-            0% { transform: translateY(-20px) rotate(45deg); opacity: 0.3; }
-            100% { transform: translateY(120vh) rotate(90deg); opacity: 0; }
+            z-index: -1;
+            background: repeating-linear-gradient(transparent 0px, transparent 98px, rgba(122,179,200,0.05) 98px, rgba(122,179,200,0.08) 100px);
         }
 
-        /* Навигация — храмовая, снизу */
         .main-nav {
             position: fixed;
             bottom: 30px;
             left: 50%;
             transform: translateX(-50%);
             width: auto;
-            background: rgba(40, 10, 10, 0.7);
+            background: rgba(10, 47, 68, 0.8);
             backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
             border-radius: 80px;
             border: var(--border-glow);
             padding: 10px 20px;
             z-index: 1000;
-            box-shadow: 0 10px 40px -10px black;
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
         }
 
         .nav-container {
@@ -91,10 +77,10 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: 700;
             font-family: var(--font-display);
-            color: var(--golden-prayer);
+            color: var(--light-blue);
             padding: 5px 20px;
             border-right: 1px solid var(--glass-border);
             cursor: pointer;
@@ -107,21 +93,21 @@
         }
 
         .nav-links a {
-            color: var(--lotus);
+            color: var(--sand);
             text-decoration: none;
             padding: 12px 24px;
             border-radius: 60px;
             font-weight: 500;
+            font-family: var(--font-display);
             transition: 0.2s;
             border: 1px solid transparent;
             font-size: 0.95rem;
         }
 
         .nav-links a:hover, .nav-links a.active {
-            background: rgba(180, 68, 44, 0.4);
-            border-color: var(--golden-prayer);
+            background: rgba(122, 179, 200, 0.2);
+            border-color: var(--light-blue);
             color: white;
-            box-shadow: 0 0 20px rgba(232,184,122,0.3);
         }
 
         .nav-toggle { display: none; }
@@ -132,80 +118,74 @@
             padding: 40px 30px 100px;
         }
 
-        .page-section { display: none; animation: rise 0.7s ease; }
+        .page-section { display: none; animation: fadeIn 0.5s ease; }
         .page-section.active { display: block; }
-        @keyframes rise { 0% { opacity: 0; transform: translateY(20px); } 100% { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
 
         .hero {
             text-align: center;
-            margin: 60px 0 50px;
+            margin: 40px 0 50px;
         }
         .hero-title {
             font-family: var(--font-display);
-            font-size: 4.5rem;
+            font-size: 4rem;
             font-weight: 800;
-            background: linear-gradient(135deg, #fff8e7, var(--golden-prayer), var(--embers));
+            background: linear-gradient(135deg, #fff, var(--light-blue), var(--gold-light));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            filter: drop-shadow(0 0 20px rgba(232,184,122,0.4));
+            letter-spacing: 2px;
         }
         .hero-sub {
-            font-size: 1.6rem;
-            color: var(--sacrifice);
+            font-size: 1.4rem;
+            color: var(--gold-light);
             font-style: italic;
+            margin-top: 10px;
         }
 
         .vault {
             background: var(--glass-bg);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
+            backdrop-filter: blur(12px);
             border-radius: var(--card-radius);
-            padding: 50px;
-            margin: 50px 0;
+            padding: 45px;
+            margin: 45px 0;
             border: var(--border-glow);
-            box-shadow: 0 30px 50px -30px black;
         }
         .vault-title {
             font-family: var(--font-display);
-            font-size: 2.8rem;
+            font-size: 2.4rem;
             font-weight: 600;
-            color: var(--golden-prayer);
+            color: var(--light-blue);
             margin-bottom: 30px;
             border-bottom: 2px dashed var(--glass-border);
-            padding-bottom: 20px;
+            padding-bottom: 18px;
             display: flex;
             align-items: center;
             gap: 15px;
         }
         .vault-title i {
-            color: var(--embers);
-            font-size: 2.5rem;
+            color: var(--gold-light);
+            font-size: 2rem;
         }
 
         .info-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 25px;
         }
         .info-card {
-            background: rgba(100, 28, 28, 0.5);
-            border-radius: 35px;
-            padding: 30px;
+            background: rgba(30, 74, 110, 0.5);
+            border-radius: 28px;
+            padding: 28px;
             border: 1px solid var(--glass-border);
             transition: 0.2s;
         }
-        .info-card:hover {
-            border-color: var(--golden-prayer);
-        }
+        .info-card:hover { border-color: var(--light-blue); }
         .info-card h3 {
-            font-size: 1.6rem;
-            color: var(--golden-prayer);
-            margin-bottom: 20px;
-            border-bottom: 1px dashed var(--glass-border);
-            padding-bottom: 10px;
+            font-size: 1.5rem;
+            color: var(--light-blue);
+            margin-bottom: 18px;
+            font-family: var(--font-display);
         }
         .info-list {
             list-style: none;
@@ -214,42 +194,32 @@
             margin: 12px 0;
             display: flex;
             justify-content: space-between;
-            align-items: center;
             border-bottom: 1px dotted rgba(255,255,255,0.1);
             padding-bottom: 8px;
         }
         .info-list li span:last-child {
-            color: var(--sacrifice);
+            color: var(--gold-light);
             font-weight: 600;
-        }
-        .info-note {
-            margin-top: 20px;
-            font-size: 0.9rem;
-            color: var(--sacrifice);
-            background: rgba(0,0,0,0.2);
-            padding: 12px;
-            border-radius: 20px;
-            text-align: center;
         }
 
         .hierarchy-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 25px;
         }
         .hierarchy-card {
-            background: rgba(100, 28, 28, 0.5);
-            border-radius: 35px;
-            padding: 30px;
+            background: rgba(30, 74, 110, 0.5);
+            border-radius: 28px;
+            padding: 28px;
             border: 1px solid var(--glass-border);
             position: relative;
         }
-        .hierarchy-card .rank-number {
+        .hierarchy-card .rank-badge {
             position: absolute;
-            top: -10px;
+            top: -12px;
             right: 20px;
-            background: var(--embers);
-            color: var(--crimson);
+            background: var(--light-blue);
+            color: var(--deep-blue);
             width: 45px;
             height: 45px;
             border-radius: 50%;
@@ -257,18 +227,20 @@
             align-items: center;
             justify-content: center;
             font-weight: 800;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
+            font-family: var(--font-display);
         }
         .hierarchy-name {
-            font-size: 1.8rem;
+            font-size: 1.7rem;
             font-weight: 700;
             font-family: var(--font-display);
-            color: var(--lotus);
-            margin: 15px 0 5px;
+            color: var(--sand);
+            margin: 10px 0 5px;
         }
         .hierarchy-title {
-            color: var(--sacrifice);
+            color: var(--gold-light);
             margin-bottom: 15px;
+            font-style: italic;
         }
         .duty-list {
             list-style: none;
@@ -280,252 +252,146 @@
             gap: 10px;
         }
 
-        /* 11 заповедей (вместо ката) */
         .commandment-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
+            gap: 20px;
         }
         .commandment-item {
-            background: rgba(100, 28, 28, 0.4);
-            border-radius: 35px;
-            padding: 30px;
+            background: rgba(30, 74, 110, 0.4);
+            border-radius: 28px;
+            padding: 24px;
             border: 1px solid var(--glass-border);
         }
         .commandment-num {
             display: inline-block;
-            background: var(--embers);
-            color: var(--crimson);
-            padding: 5px 16px;
-            border-radius: 50px;
-            margin-bottom: 15px;
+            background: var(--light-blue);
+            color: var(--deep-blue);
+            padding: 4px 14px;
+            border-radius: 40px;
+            margin-bottom: 12px;
+            font-weight: 700;
         }
         .commandment-name {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 700;
             font-family: var(--font-display);
-            color: var(--lotus);
+            color: var(--sand);
         }
         .commandment-desc {
-            margin-top: 10px;
-            color: var(--golden-prayer);
-            font-style: italic;
+            margin-top: 8px;
+            color: var(--gold-light);
         }
 
         .stage-block {
-            background: rgba(70, 10, 15, 0.6);
-            border-radius: 35px;
-            padding: 30px;
+            background: rgba(30, 74, 110, 0.4);
+            border-radius: 28px;
+            padding: 28px;
             margin: 20px 0;
             border: 1px solid var(--glass-border);
         }
         .stage-title {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: 600;
-            color: var(--golden-prayer);
+            font-family: var(--font-display);
+            color: var(--light-blue);
             margin-bottom: 15px;
         }
         .cmd-box {
-            background: #2e0b0b;
-            padding: 20px;
-            border-radius: 25px;
+            background: #0a2f44;
+            padding: 18px;
+            border-radius: 24px;
             font-family: monospace;
-            border: 1px solid var(--golden-prayer);
-            margin: 20px 0;
-            color: var(--sacrifice);
-        }
-        .warning {
-            background: rgba(201, 139, 94, 0.1);
-            border-left: 6px solid var(--sacrifice);
-            padding: 20px;
-            border-radius: 20px;
-            margin: 20px 0;
+            border-left: 4px solid var(--light-blue);
+            margin: 18px 0;
+            color: var(--sand);
         }
 
-        .training-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 25px;
-        }
-        .training-card {
-            background: rgba(100, 28, 28, 0.4);
-            border-radius: 35px;
-            padding: 30px;
-            border: 1px solid var(--glass-border);
-        }
-        .training-card h3 {
-            font-size: 1.6rem;
-            color: var(--golden-prayer);
-            margin-bottom: 15px;
-        }
-        .phase-list {
-            list-style: none;
-        }
-        .phase-list li {
-            margin: 12px 0;
-            padding-left: 25px;
-            position: relative;
-        }
-        .phase-list li::before {
-            content: '▹';
-            color: var(--sacrifice);
-            position: absolute;
-            left: 0;
-        }
-
-        .step-item {
-            background: rgba(70, 10, 15, 0.4);
-            border-radius: 30px;
-            padding: 25px;
-            margin: 15px 0;
-            border: 1px solid var(--glass-border);
-        }
-
-        .table-wrap {
-            overflow-x: auto;
-            border-radius: 30px;
-            border: 1px solid var(--glass-border);
-            margin: 20px 0;
-        }
-        .cult-table {
+        .points-table {
             width: 100%;
             border-collapse: collapse;
-            min-width: 800px;
-        }
-        .cult-table th {
-            background: rgba(0,0,0,0.3);
-            padding: 15px;
-            color: var(--golden-prayer);
-            font-weight: 600;
-            text-align: left;
-        }
-        .cult-table td {
-            padding: 12px 15px;
-            border-bottom: 1px solid var(--glass-border);
-        }
-        .discord-tag {
-            background: #4a2626;
-            padding: 5px 15px;
-            border-radius: 30px;
-            font-family: monospace;
-            display: inline-block;
-        }
-        .rank-pill {
-            background: var(--embers);
-            color: var(--crimson);
-            padding: 3px 12px;
-            border-radius: 30px;
-            font-weight: 600;
-            display: inline-block;
-        }
-        .empty-slot {
-            color: var(--sacrifice);
-            font-style: italic;
-        }
-        .warning-indicator {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .progress-track {
-            height: 12px;
-            background: #4a2626;
-            border-radius: 20px;
             margin: 20px 0;
         }
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--embers), var(--golden-prayer));
-            width: 37.5%;
+        .points-table th, .points-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--glass-border);
+            text-align: left;
+        }
+        .points-table th {
+            color: var(--light-blue);
+            font-weight: 600;
         }
 
+        .promo-block {
+            background: rgba(0,0,0,0.3);
+            border-radius: 28px;
+            padding: 30px;
+            margin-top: 20px;
+        }
         .rank-selector {
             display: flex;
             gap: 20px;
             align-items: center;
             flex-wrap: wrap;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
         #rankSelect {
-            background: var(--altar);
+            background: var(--ocean);
             color: white;
-            border: 1px solid var(--golden-prayer);
+            border: 1px solid var(--light-blue);
             border-radius: 60px;
-            padding: 12px 25px;
+            padding: 10px 25px;
             font-size: 1rem;
-            min-width: 250px;
-        }
-        .promo-block {
-            background: rgba(0,0,0,0.3);
-            border-radius: 30px;
-            padding: 30px;
+            min-width: 220px;
         }
         .promo-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 25px;
             flex-wrap: wrap;
             gap: 15px;
+            margin-bottom: 20px;
         }
         .promo-title {
-            font-size: 2rem;
-            color: var(--golden-prayer);
-        }
-        .promo-sub {
-            color: var(--sacrifice);
-            font-size: 1.1rem;
+            font-size: 1.8rem;
+            color: var(--light-blue);
         }
         .promo-cooldown {
-            background: rgba(180, 68, 44, 0.3);
-            padding: 10px 20px;
+            background: rgba(122,179,200,0.2);
+            padding: 8px 20px;
+            border-radius: 40px;
+        }
+
+        /* Таблицы состава */
+        .cult-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .cult-table th, .cult-table td {
+            padding: 12px;
+            border-bottom: 1px solid var(--glass-border);
+            text-align: left;
+        }
+        .cult-table th {
+            color: var(--light-blue);
+        }
+        .discord-tag {
+            background: #1e4a6e;
+            padding: 4px 12px;
             border-radius: 30px;
-            border: 1px solid var(--golden-prayer);
+            font-family: monospace;
+            font-size: 0.9rem;
         }
-        .requirements-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin: 25px 0;
-        }
-        .requirement-cat {
-            background: rgba(70, 10, 15, 0.5);
-            border-radius: 25px;
-            padding: 25px;
-            border: 1px solid var(--glass-border);
-        }
-        .requirement-cat h4 {
-            font-size: 1.3rem;
-            color: var(--golden-prayer);
-            margin-bottom: 15px;
-            border-bottom: 1px dashed;
-            padding-bottom: 8px;
-        }
-        .requirement-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 8px 0;
-            border-bottom: 1px dotted rgba(255,255,255,0.1);
-        }
-        .requirement-item:last-child {
-            border-bottom: none;
-        }
-        .requirement-name {
-            color: var(--lotus);
-        }
-        .requirement-value {
-            color: var(--sacrifice);
+        .rank-pill {
+            background: var(--light-blue);
+            color: var(--deep-blue);
+            padding: 2px 12px;
+            border-radius: 30px;
             font-weight: 600;
+            display: inline-block;
         }
-        .promo-note {
-            margin-top: 25px;
-            background: rgba(0,0,0,0.2);
-            padding: 15px;
-            border-radius: 20px;
-            text-align: center;
-            color: var(--sacrifice);
-        }
+        .empty-slot { color: var(--gold-light); font-style: italic; }
 
         @media (max-width: 900px) {
             .nav-links {
@@ -534,7 +400,7 @@
                 left: 50%;
                 transform: translateX(-50%);
                 width: 90%;
-                background: var(--crimson);
+                background: var(--deep-blue);
                 flex-direction: column;
                 padding: 20px;
                 border-radius: 50px;
@@ -546,716 +412,235 @@
                 position: fixed; 
                 bottom: 30px; 
                 right: 30px; 
-                background: var(--embers); 
-                width: 60px; 
-                height: 60px; 
+                background: var(--light-blue); 
+                width: 55px; 
+                height: 55px; 
                 border-radius: 50%; 
                 display: flex; 
                 align-items: center; 
                 justify-content: center; 
-                font-size: 1.8rem; 
-                color: white; 
+                font-size: 1.6rem; 
+                color: var(--deep-blue); 
                 cursor: pointer; 
                 z-index: 1001; 
             }
-            .hero-title { font-size: 3rem; }
-            .promo-header { flex-direction: column; align-items: flex-start; }
+            .hero-title { font-size: 2.8rem; }
         }
     </style>
 </head>
 <body>
-    <!-- Генератор лепестков (вместо капель) -->
-    <script>
-        for (let i = 0; i < 30; i++) {
-            let p = document.createElement('div');
-            p.className = 'petal';
-            p.style.left = Math.random() * 100 + '%';
-            p.style.animationDelay = Math.random() * 8 + 's';
-            p.style.animationDuration = 8 + Math.random() * 10 + 's';
-            p.style.width = 8 + Math.random() * 15 + 'px';
-            p.style.height = p.style.width;
-            document.body.appendChild(p);
-        }
-    </script>
+<div class="wave"></div>
 
-    <nav class="main-nav">
-        <div class="nav-container">
-            <div class="nav-logo" onclick="scrollToTop()"><i class="fas fa-om"></i> 卍</div>
-            <ul class="nav-links">
-                <li><a href="#" data-section="home-section" class="nav-link active">О Культе</a></li>
-                <li><a href="#" data-section="ranks-section" class="nav-link">Ступени Веры</a></li>
-                <li><a href="#" data-section="codex-section" class="nav-link">Догмы Рая</a></li>
-                <li><a href="#" data-section="staff-section" class="nav-link">Паства</a></li>
-            </ul>
-        </div>
-    </nav>
-    <div class="nav-toggle" id="navToggle"><i class="fas fa-bars"></i></div>
-
-    <div class="container">
-        <!-- ГЛАВНАЯ СТРАНИЦА (О КУЛЬТЕ) -->
-        <section id="home-section" class="page-section active">
-            <div class="hero">
-                <h1 class="hero-title">КУЛЬТ ВЕЧНОГО РАЯ</h1>
-                <p class="hero-sub">永久楽園 — Eikyū Rakuen · Учение Доумы</p>
-            </div>
-
-            <!-- Описание культа -->
-            <div class="vault">
-                <h2 class="vault-title"><i class="fas fa-pray"></i> О Культе Вечного Рая</h2>
-                <p>Культ Вечного Рая — религиозное движение, основанное великим Доуме, Верхней Луной Второй. Его учение обещает всем последователям освобождение от страданий и вечное блаженство в раю, где нет боли, болезней и смерти. Доуме, как живое воплощение божества, направляет своих адептов к просветлению через радость, принятие и абсолютную веру.</p>
-                <p style="margin-top:20px;">Культ не признаёт сословных различий: перед ликом Доуме все равны. Единственное, что имеет значение — чистота сердца и готовность отринуть мирскую суету. Ритуалы культа наполнены пением, танцами и подношениями. Каждый последователь стремится достичь состояния «вечной улыбки» — внутреннего покоя, который Доуме дарует своим детям.</p>
-            </div>
-
-            <!-- Иерархия Культа (вместо иерархии дыхания) -->
-            <div class="vault">
-                <h2 class="vault-title"><i class="fas fa-sitemap"></i> Иерархия Культа</h2>
-                <div class="hierarchy-grid">
-                    <!-- Доуме -->
-                    <div class="hierarchy-card">
-                        <div class="rank-number">⛩️</div>
-                        <div class="hierarchy-name">Доуме</div>
-                        <div class="hierarchy-title">Верховное Божество, Основатель</div>
-                        <ul class="duty-list">
-                            <li><i class="fas fa-caret-right"></i> Источник всех истин</li>
-                            <li><i class="fas fa-caret-right"></i> Принимает души в рай</li>
-                            <li><i class="fas fa-caret-right"></i> Направляет жрецов</li>
-                            <li><i class="fas fa-caret-right"></i> Единственный, кто достоин поклонения</li>
-                        </ul>
-                    </div>
-                    <!-- Первосвященники -->
-                    <div class="hierarchy-card">
-                        <div class="rank-number">1</div>
-                        <div class="hierarchy-name">Первосвященник</div>
-                        <div class="hierarchy-title">Голос Доуме</div>
-                        <ul class="duty-list">
-                            <li><i class="fas fa-caret-right"></i> Толкование воли Доуме</li>
-                            <li><i class="fas fa-caret-right"></i> Проведение великих обрядов</li>
-                            <li><i class="fas fa-caret-right"></i> Назначение жрецов</li>
-                            <li><i class="fas fa-caret-right"></i> Приём исповедей</li>
-                            <li><i class="fas fa-caret-right"></i> 220 минут проповедей в неделю</li>
-                        </ul>
-                    </div>
-                    <!-- Жрецы -->
-                    <div class="hierarchy-card">
-                        <div class="rank-number">2</div>
-                        <div class="hierarchy-name">Жрец</div>
-                        <div class="hierarchy-title">Хранитель алтаря</div>
-                        <ul class="duty-list">
-                            <li><i class="fas fa-caret-right"></i> Ежедневные службы</li>
-                            <li><i class="fas fa-caret-right"></i> Обучение неофитов</li>
-                            <li><i class="fas fa-caret-right"></i> Благословение подношений</li>
-                            <li><i class="fas fa-caret-right"></i> 300 минут служения в неделю</li>
-                        </ul>
-                    </div>
-                    <!-- Проповедники -->
-                    <div class="hierarchy-card">
-                        <div class="rank-number">3</div>
-                        <div class="hierarchy-name">Проповедник</div>
-                        <div class="hierarchy-title">Странник веры</div>
-                        <ul class="duty-list">
-                            <li><i class="fas fa-caret-right"></i> Проповедь среди мирян</li>
-                            <li><i class="fas fa-caret-right"></i> Привлечение новых адептов</li>
-                            <li><i class="fas fa-caret-right"></i> Сбор пожертвований</li>
-                            <li><i class="fas fa-caret-right"></i> Совершенствование ритуалов</li>
-                        </ul>
-                    </div>
-                    <!-- Верующие -->
-                    <div class="hierarchy-card">
-                        <div class="rank-number">4</div>
-                        <div class="hierarchy-name">Верующий</div>
-                        <div class="hierarchy-title">Член общины</div>
-                        <ul class="duty-list">
-                            <li><i class="fas fa-caret-right"></i> Посещение собраний</li>
-                            <li><i class="fas fa-caret-right"></i> Участие в праздниках</li>
-                            <li><i class="fas fa-caret-right"></i> Подношения алтарю</li>
-                            <li><i class="fas fa-caret-right"></i> Изучение писаний</li>
-                        </ul>
-                    </div>
-                    <!-- Неофит -->
-                    <div class="hierarchy-card">
-                        <div class="rank-number">5</div>
-                        <div class="hierarchy-name">Неофит</div>
-                        <div class="hierarchy-title">Ищущий свет</div>
-                        <ul class="duty-list">
-                            <li><i class="fas fa-caret-right"></i> Первое знакомство с культом</li>
-                            <li><i class="fas fa-caret-right"></i> Обряд очищения</li>
-                            <li><i class="fas fa-caret-right"></i> Изучение основ учения</li>
-                            <li><i class="fas fa-caret-right"></i> Подготовка к посвящению</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 11 Заповедей Доуме (вместо 11 ката) -->
-            <div class="vault">
-                <h2 class="vault-title"><i class="fas fa-list"></i> Одиннадцать заповедей Доуме</h2>
-                <p style="margin-bottom:30px;">Заповеди, данные Доуме своим последователям для достижения вечного рая.</p>
-                <div class="commandment-grid">
-                    <div class="commandment-item"><span class="commandment-num">一</span><div class="commandment-name">Радость бытия</div><div class="commandment-desc">Всегда улыбайся, ибо улыбка открывает врата рая.</div></div>
-                    <div class="commandment-item"><span class="commandment-num">二</span><div class="commandment-name">Отречение</div><div class="commandment-desc">Оставь привязанность к миру — он лишь тень истинного счастья.</div></div>
-                    <div class="commandment-item"><span class="commandment-num">三</span><div class="commandment-name">Равенство</div><div class="commandment-desc">Перед Доуме все души равны, нет высших и низших.</div></div>
-                    <div class="commandment-item"><span class="commandment-num">四</span><div class="commandment-name">Милосердие</div><div class="commandment-desc">Помогай другим обрести веру, даже если они сопротивляются.</div></div>
-                    <div class="commandment-item"><span class="commandment-num">五</span><div class="commandment-name">Чистота</div><div class="commandment-desc">Содержи в чистоте тело и помыслы, ибо Доуме видит всё.</div></div>
-                    <div class="commandment-item"><span class="commandment-num">六</span><div class="commandment-name">Жертва</div><div class="commandment-desc">Не бойся отдать часть себя — рай воздаст сторицей.</div></div>
-                    <div class="commandment-item"><span class="commandment-num">七</span><div class="commandment-name">Песнопение</div><div class="commandment-desc">Воспевай имя Доуме, и голос твой достигнет небес.</div></div>
-                    <div class="commandment-item"><span class="commandment-num">八</span><div class="commandment-name">Смирение</div><div class="commandment-desc">Принимай страдания с улыбкой — это очищает душу.</div></div>
-                    <div class="commandment-item"><span class="commandment-num">九</span><div class="commandment-name">Единство</div><div class="commandment-desc">Община верующих — тело Доуме, не разобщай его.</div></div>
-                    <div class="commandment-item"><span class="commandment-num">十</span><div class="commandment-name">Память</div><div class="commandment-desc">Каждый день вспоминай о рае, и он приблизится.</div></div>
-                    <div class="commandment-item"><span class="commandment-num">十一</span><div class="commandment-name">Любовь</div><div class="commandment-desc">Люби Доуме превыше всего, ибо он — путь и свет.</div></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- СТУПЕНИ ВЕРЫ (система повышения) -->
-        <section id="ranks-section" class="page-section">
-            <div class="hero">
-                <h1 class="hero-title">СТУПЕНИ ВЕРЫ</h1>
-                <p class="hero-sub">10 ступеней духовного роста · От Неофита до Первосвященника</p>
-            </div>
-
-            <!-- Общая информация о продвижении -->
-            <div class="vault">
-                <h2 class="vault-title"><i class="fas fa-info-circle"></i> Путь к просветлению</h2>
-                <p style="margin-bottom:30px;">Основные принципы духовного роста и отчётности перед алтарём</p>
-                
-                <div class="info-grid">
-                    <div class="info-card">
-                        <h3>Отчётность</h3>
-                        <ul class="info-list">
-                            <li>Отчёты в канал #служения</li>
-                            <li>Подробное описание ритуалов</li>
-                            <li>Скриншоты молитв (по желанию)</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="info-card">
-                        <h3>Лимиты</h3>
-                        <ul class="info-list">
-                            <li><span>Пожертвования</span> <span>5 за ступень</span></li>
-                            <li><span>Обращение неверующих</span> <span>3 за ступень</span></li>
-                            <li><span>Исповедь</span> <span>1 за ступень</span></li>
-                            <li><span>Паломничество</span> <span>ограничено рангом</span></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="info-card">
-                        <h3>Обязательные требования</h3>
-                        <ul class="info-list">
-                            <li>Личная аудиенция у жреца</li>
-                            <li>Испытание веры (обряд)</li>
-                            <li>Участие в великих службах</li>
-                            <li>Пожертвование алтарю</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Система баллов (благодати) -->
-            <div class="vault">
-                <h2 class="vault-title"><i class="fas fa-star"></i> Благодать (баллы веры)</h2>
-                <p style="margin-bottom:30px;">Очки благодати за богоугодные дела</p>
-                
-                <div class="info-grid">
-                    <div class="info-card">
-                        <h3>Низшая ступень (Неофит–Верующий)</h3>
-                        <ul class="info-list">
-                            <li><span>Участие в службе</span> <span>4 балла</span></li>
-                            <li><span>Поручение от Первосвященника</span> <span>4 балла</span></li>
-                            <li><span>Поручение от Жреца</span> <span>3 балла</span></li>
-                            <li><span>Участие в празднике</span> <span>3 балла</span></li>
-                            <li><span>Исповедь (сдача грехов)</span> <span>2 балла</span></li>
-                            <li><span>Паломничество</span> <span>1 балл</span></li>
-                            <li><span>Пожертвование</span> <span>1 балл</span></li>
-                            <li><span>Обращение неверующего</span> <span>1 балл</span></li>
-                        </ul>
-                        <div class="info-note">Лимиты: пожертвование — 5 за ступень, обращение — 3, исповедь — 1</div>
-                    </div>
-                    
-                    <div class="info-card">
-                        <h3>Средняя ступень (Проповедник)</h3>
-                        <ul class="info-list">
-                            <li><span>Участие в службе</span> <span>4 балла</span></li>
-                            <li><span>Поручение от Первосвященника</span> <span>4 балла</span></li>
-                            <li><span>Поручение от Жреца</span> <span>3 балла</span></li>
-                            <li><span>Участие в празднике</span> <span>3 балла</span></li>
-                            <li><span>Паломничество</span> <span>1 балл</span></li>
-                            <li><span>Пожертвование</span> <span>1 балл</span></li>
-                            <li><span>Обращение неверующего</span> <span>1–2 балла</span></li>
-                        </ul>
-                        <div class="info-note">Лимиты: паломничество, пожертвование, обращение — ⅓ от баллов на ступень</div>
-                    </div>
-                    
-                    <div class="info-card">
-                        <h3>Высшая ступень (Жрец, Первосвященник)</h3>
-                        <ul class="info-list">
-                            <li><span>Участие в службе</span> <span>4 балла</span></li>
-                            <li><span>Сбор общины</span> <span>4 балла</span></li>
-                            <li><span>Поручение от Доуме (видение)</span> <span>4 балла</span></li>
-                            <li><span>Поручение от Первосвященника</span> <span>3 балла</span></li>
-                            <li><span>Великий праздник</span> <span>3 балла</span></li>
-                            <li><span>Паломничество</span> <span>1 балл</span></li>
-                            <li><span>Пожертвование</span> <span>1 балл</span></li>
-                            <li><span>Обращение неверующего</span> <span>1–2 балла</span></li>
-                        </ul>
-                        <div class="info-note">Лимиты: паломничество, пожертвование, обращение — ¼ от баллов на ступень</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Переход на следующую ступень (аналог повышения) -->
-            <div class="vault">
-                <h2 class="vault-title"><i class="fas fa-arrow-up"></i> Восхождение на следующую ступень</h2>
-                <p style="margin-bottom:30px;">Выберите вашу текущую ступень, чтобы увидеть требования для перехода на следующую</p>
-                
-                <div class="rank-selector">
-                    <span style="font-size:1.3rem;">Ваша ступень:</span>
-                    <select id="rankSelect">
-                        <option value="neophyte">Неофит</option>
-                        <option value="believer" selected>Верующий</option>
-                        <option value="preacher">Проповедник</option>
-                        <option value="priest">Жрец</option>
-                        <option value="highpriest">Первосвященник</option>
-                    </select>
-                </div>
-
-                <div class="promo-block" id="promoBlock">
-                    <div class="promo-header">
-                        <div>
-                            <h3 class="promo-title" id="promoTitle">Переход с Верующего на Проповедника</h3>
-                            <p class="promo-sub" id="promoDesc">Активный член общины</p>
-                        </div>
-                        <div class="promo-cooldown">
-                            <span>Время до следующего обряда: <strong id="promoCooldown">⏳ 1 день</strong></span>
-                        </div>
-                    </div>
-
-                    <div class="requirements-grid">
-                        <div class="requirement-cat">
-                            <h4>Основные требования</h4>
-                            <div class="requirement-item">
-                                <span class="requirement-name">Необходимо баллов благодати</span>
-                                <span class="requirement-value" id="reqPoints">12 баллов</span>
-                            </div>
-                            <div class="requirement-item">
-                                <span class="requirement-name">Очищение (исповедь)</span>
-                                <span class="requirement-value">Обязательно</span>
-                            </div>
-                        </div>
-
-                        <div class="requirement-cat">
-                            <h4>Система благодати</h4>
-                            <div class="requirement-item"><span>Участие в службе</span><span>4 балла</span></div>
-                            <div class="requirement-item"><span>Поручение от Первосвященника</span><span>4 балла</span></div>
-                            <div class="requirement-item"><span>Поручение от Жреца</span><span>3 балла</span></div>
-                            <div class="requirement-item"><span>Участие в празднике</span><span>3 балла</span></div>
-                            <div class="requirement-item"><span>Исповедь (сдача грехов)</span><span>2 балла</span></div>
-                            <div class="requirement-item"><span>Паломничество</span><span>1 балл</span></div>
-                            <div class="requirement-item"><span>Пожертвование</span><span>1 балл</span></div>
-                            <div class="requirement-item"><span>Обращение неверующего</span><span>1 балл</span></div>
-                        </div>
-                    </div>
-
-                    <div class="promo-note">
-                        💡 Для зачёта благодати отправьте отчёт в канал #служения в Discord с описанием совершённого обряда
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ДОГМЫ ВЕЧНОГО РАЯ (бывший Кодекс) -->
-        <section id="codex-section" class="page-section">
-            <div class="hero">
-                <h1 class="hero-title">ДОГМЫ ВЕЧНОГО РАЯ</h1>
-                <p class="hero-sub">Основа учения Доуме</p>
-            </div>
-
-            <!-- Семь догм культа -->
-            <div class="vault">
-                <h2 class="vault-title"><i class="fas fa-scroll"></i> Семь столпов веры</h2>
-                <p style="margin-bottom:30px; font-size:1.2rem;">Незыблемые основы, на которых зиждется Культ Вечного Рая</p>
-                
-                <div class="info-grid">
-                    <div class="info-card"><span class="card-num">1</span><h3>Единство с Доуме</h3><p>Доуме — не просто пророк, он само божество, явившееся в мир, чтобы даровать рай.</p></div>
-                    <div class="info-card"><span class="card-num">2</span><h3>Отказ от страданий</h3><p>Страдания — иллюзия. Прими улыбку, и боль исчезнет.</p></div>
-                    <div class="info-card"><span class="card-num">3</span><h3>Всеобщее равенство</h3><p>В раю нет богатых и бедных, сильных и слабых — все души равны.</p></div>
-                    <div class="info-card"><span class="card-num">4</span><h3>Жертва во имя рая</h3><p>Подношения алтарю приближают момент всеобщего блаженства.</p></div>
-                    <div class="info-card"><span class="card-num">5</span><h3>Блаженная улыбка</h3><p>Улыбка — знак истинного последователя. Носи её всегда.</p></div>
-                    <div class="info-card"><span class="card-num">6</span><h3>Преклонение перед чудом</h3><p>Всё, что происходит — воля Доуме, принимай это с радостью.</p></div>
-                    <div class="info-card"><span class="card-num">7</span><h3>Распространение света</h3><p>Каждый обязан привести в культ хотя бы одного нового адепта.</p></div>
-                </div>
-
-                <h3 style="color:var(--golden-prayer); margin:40px 0 20px; font-size:2rem;">Три великих обета</h3>
-                <div class="info-grid" style="grid-template-columns:repeat(3,1fr);">
-                    <div class="info-card"><p>Никогда не сомневайся в Доуме.</p></div>
-                    <div class="info-card"><p>Каждый день благодари за возможность быть частью культа.</p></div>
-                    <div class="info-card"><p>Даже павший духом может быть спасён улыбкой.</p></div>
-                </div>
-
-                <div class="info-card" style="margin-top:25px;">
-                    <h3>Облачение адепта</h3>
-                    <p>Свободное, но с символом веера или лепестка лотоса. Алые и золотые тона приветствуются.</p>
-                </div>
-            </div>
-
-            <!-- Обучение Неофитов (аналог стадий обучения) -->
-            <div class="vault">
-                <h2 class="vault-title"><i class="fas fa-graduation-cap"></i> Наставление Неофитов</h2>
-                <p style="margin-bottom:30px;">Пошаговый процесс принятия нового адепта в лоно культа</p>
-
-                <div class="stage-block">
-                    <div class="stage-title">Стадия 1: Приветствие</div>
-                    <div class="stage-content">
-                        <p>Встретив ищущего, проводи его к алтарю. Предложи ему воду и хлеб. Обратись к нему с улыбкой и спроси, что привело его в храм. Не дави, но излучай радость.</p>
-                        <div class="cmd-box">"Брат/сестра, Доуме видит твоё сердце. Расскажи о своём желании обрести рай."</div>
-                        <p>Выслушай ищущего и, если его намерения чисты, переходи к следующей стадии.</p>
-                    </div>
-                </div>
-
-                <div class="stage-block">
-                    <div class="stage-title">Стадия 2: Очищение</div>
-                    <div class="stage-content">
-                        <p>Проведи обряд омовения (символического). Окропи его водой с лепестками, приговаривая: «Смой всё мирское, оставь только свет».</p>
-                        <div class="warning">ВАЖНО: Не оскверняй обряд плохим настроением. Улыбайся!</div>
-                        <p>После этого спроси, готов ли он принять заповеди Доуме. Если да, выдай ему символ культа (веер или ленту) и зарегистрируй его у жреца.</p>
-                    </div>
-                </div>
-
-                <div class="stage-block">
-                    <div class="stage-title">Стадия 3: Посвящение</div>
-                    <div class="stage-content">
-                        <p>Зачитай неофиту одиннадцать заповедей Доуме и семь столпов веры. Объясни иерархию культа.</p>
-                        <p>После отведи его в молельную комнату, покажи, как правильно совершать поклоны и петь гимны.</p>
-                    </div>
-                </div>
-
-                <div class="stage-block">
-                    <div class="stage-title">Стадия 4: Испытание веры</div>
-                    <div class="stage-content">
-                        <p>Попроси неофита совершить первое подношение (пожертвование) и публично произнести имя Доуме с улыбкой. Если он справился — обряд завершён.</p>
-                        <p>Проведи символический бой с тенью (без оружия), чтобы показать, что рай защищает своих детей.</p>
-                    </div>
-                </div>
-
-                <div class="stage-block">
-                    <div class="stage-title">Стадия 5: Заключение</div>
-                    <div class="stage-content">
-                        <p>Проведи нового адепта по храму, покажи алтарь, место для пожертвований, комнату для медитаций. Заверши обряд общей молитвой.</p>
-                        <p>Не забудь отправить отчёт жрецу в Discord-канал!</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Духовные практики (вместо тренировок) -->
-            <div class="vault">
-                <h2 class="vault-title"><i class="fas fa-praying-hands"></i> Духовные практики</h2>
-                <p style="margin-bottom:30px;">Упражнения для укрепления веры и приближения к Доуме</p>
-
-                <div class="training-grid">
-                    <div class="training-card">
-                        <h3>Практика внутренней улыбки №1</h3>
-                        <ul class="phase-list">
-                            <li><strong>Этап 1:</strong> Сядь в позу лотоса, закрой глаза.</li>
-                            <li><strong>Этап 2:</strong> Сконцентрируйся на улыбке, даже если внутри пусто. Дыши ровно: 3 сек вдох, 2 сек выдох.</li>
-                            <li><strong>Этап 3:</strong> Удерживай улыбку 5 минут, каждую минуту /try на срыв (помехи извне). Минимум 10 отыгровок.</li>
-                        </ul>
-                    </div>
-
-                    <div class="training-card">
-                        <h3>Практика №2: Молитва с подношением</h3>
-                        <ul class="phase-list">
-                            <li><strong>Этап 1:</strong> Возьми символическое подношение (цветок, ленту).</li>
-                            <li><strong>Этап 2:</strong> Встань перед алтарём, поддерживай ритм дыхания.</li>
-                            <li><strong>Этап 3:</strong> Произноси имя Доуме, одновременно выполняя поклоны. /try на искренность. Минимум 15 отыгровок.</li>
-                        </ul>
-                    </div>
-
-                    <div class="training-card">
-                        <h3>Практика №3: Паломничество к священной горе</h3>
-                        <ul class="phase-list">
-                            <li><strong>Этап 1:</strong> Отправляйся к горе (локация по выбору жреца).</li>
-                            <li><strong>Этап 2:</strong> Привяжи к поясу символ культа, поднимайся 10 минут.</li>
-                            <li><strong>Этап 3:</strong> Каждые 2 минуты /try на сбивание дыхания. Минимум 15 отыгровок.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="training-card" style="margin-top:25px;">
-                    <h3>Великая медитация единения с Доуме</h3>
-                    <ul class="phase-list">
-                        <li><strong>Этап 1:</strong> Разминка: 15 поклонов, 2 подхода.</li>
-                        <li><strong>Этап 2:</strong> Концентрация на дыхании: 4 сек вдох, 4 сек задержка, 4 сек выдох.</li>
-                        <li><strong>Этап 3:</strong> Выполнить все этапы практик 1–3 (кроме этапов «сконцентрируйся»).</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Символ веры и правила обращения с ним (вместо владения клинком) -->
-            <div class="vault">
-                <h2 class="vault-title"><i class="fas fa-khanda"></i> Символ веры (веер)</h2>
-                <p style="margin-bottom:30px;">Искусство обращения со священным веером и уход за ним</p>
-
-                <div class="step-item">
-                    <h3 style="color:var(--golden-prayer);">Введение</h3>
-                    <p>Веер — не просто предмет, это дар Доуме. С его помощью мы развеиваем тьму и призываем рай. Научись обращаться с ним благоговейно.</p>
-                </div>
-
-                <div class="step-item">
-                    <h3 style="color:var(--golden-prayer);">Шаг 1: Раскрытие веера</h3>
-                    <p>Плавным движением раскрой веер, представляя, как распускается лепесток лотоса.</p>
-                    <div class="cmd-box">((Через /me и /do опиши раскрытие веера))</div>
-                </div>
-
-                <div class="step-item">
-                    <h3 style="color:var(--golden-prayer);">Шаг 2: Ритм дыхания</h3>
-                    <p>Держи веер перед грудью, дыши ровно. Каждое движение веером должно быть наполнено верой.</p>
-                </div>
-
-                <div class="step-item">
-                    <h3 style="color:var(--golden-prayer);">Шаг 3: Баланс и поза</h3>
-                    <p>Стой прямо, ноги на ширине плеч. Медленно поворачивай веер, следя за плавностью.</p>
-                </div>
-
-                <div class="step-item">
-                    <h3 style="color:var(--golden-prayer);">Шаг 4: Использование в ритуале</h3>
-                    <p>Во время молитвы веером можно обмахивать алтарь или направлять поток благодати на паству.</p>
-                </div>
-
-                <h3 style="color:var(--golden-prayer); margin:40px 0 20px;">Уход за веером</h3>
-
-                <div class="step-item">
-                    <h3 style="color:var(--golden-prayer);">Введение</h3>
-                    <p>Веер — одухотворённый предмет. Чистку проводи в тишине, используя мягкую ткань.</p>
-                    <div class="cmd-box">/me достал чистую шёлковую ткань и бережно протёр каждый лепесток веера.</div>
-                </div>
-
-                <div class="step-item">
-                    <h3 style="color:var(--golden-prayer);">Очищение</h3>
-                    <p>Протри веер от пыли. Если есть пятна, используй рисовую бумагу.</p>
-                    <div class="cmd-box">/try веер очищен? (при неудаче повторить)</div>
-                </div>
-
-                <div class="step-item">
-                    <h3 style="color:var(--golden-prayer);">Благовоние</h3>
-                    <p>Можно слегка сбрызнуть веер водой с лепестками, чтобы он сохранял аромат рая.</p>
-                    <div class="cmd-box">/me нанёс несколько капель святой воды на веер.</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ПАСТВА (состав культа) -->
-        <section id="staff-section" class="page-section">
-            <div class="hero">
-                <h1 class="hero-title">ПАСТВА КУЛЬТА</h1>
-                <p class="hero-sub">Иерархия и члены Культа Вечного Рая</p>
-            </div>
-
-            <div class="vault">
-                <h2 class="vault-title"><i class="fas fa-users"></i> Духовенство и адепты</h2>
-                <p class="hero-sub" style="font-size:1.2rem; text-align:left;">Список служителей и верующих.</p>
-                
-                <div class="progress-track">
-                    <div class="progress-fill" style="width:37.5%"></div>
-                </div>
-                <div style="display:flex; justify-content:space-between; margin-bottom:30px;">
-                    <span>Заполненность паствы:</span>
-                    <span>37.5%</span>
-                </div>
-                
-                <!-- Верховное божество -->
-                <h3 style="color:var(--golden-prayer); margin:30px 0 15px;">Верховное божество</h3>
-                <div class="table-wrap">
-                    <table class="cult-table">
-                        <thead>
-                            <tr>
-                                <th>Имя</th>
-                                <th>Дискорд</th>
-                                <th>Ступень</th>
-                                <th>Должность</th>
-                                <th>Епитимьи</th>
-                                <th>Предостережения</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Доуме</td>
-                                <td><span class="discord-tag">doum3_ever</span></td>
-                                <td><span class="rank-pill">Божество</span></td>
-                                <td>Основатель</td>
-                                <td><span class="warning-indicator"><span>📝</span> 0/∞</span></td>
-                                <td><span class="warning-indicator"><span>⚠️</span> 0/∞</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <!-- Первосвященники -->
-                <h3 style="color:var(--golden-prayer); margin:40px 0 15px;">Первосвященники</h3>
-                <div class="table-wrap">
-                    <table class="cult-table">
-                        <thead>
-                            <tr>
-                                <th>Имя</th>
-                                <th>Дискорд</th>
-                                <th>Ступень</th>
-                                <th>Должность</th>
-                                <th>Епитимьи</th>
-                                <th>Предостережения</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Акира Накамура</td>
-                                <td><span class="discord-tag">nakamura_akira</span></td>
-                                <td><span class="rank-pill">Первосвященник</span></td>
-                                <td>Голос Доуме</td>
-                                <td><span class="warning-indicator"><span>📝</span> 0/3</span></td>
-                                <td><span class="warning-indicator"><span>⚠️</span> 0/2</span></td>
-                            </tr>
-                            <tr>
-                                <td class="empty-slot">-</td>
-                                <td class="empty-slot">-</td>
-                                <td><span class="rank-pill">Пусто</span></td>
-                                <td>Первосвященник</td>
-                                <td><span class="warning-indicator"><span>📝</span> 0/3</span></td>
-                                <td><span class="warning-indicator"><span>⚠️</span> 0/2</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <!-- Жрецы -->
-                <h3 style="color:var(--golden-prayer); margin:40px 0 15px;">Жрецы</h3>
-                <div class="table-wrap">
-                    <table class="cult-table">
-                        <thead>
-                            <tr>
-                                <th>Имя</th>
-                                <th>Дискорд</th>
-                                <th>Ступень</th>
-                                <th>Должность</th>
-                                <th>Епитимьи</th>
-                                <th>Предостережения</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="empty-slot">-</td>
-                                <td class="empty-slot">-</td>
-                                <td><span class="rank-pill">Пусто</span></td>
-                                <td>Жрец</td>
-                                <td><span class="warning-indicator"><span>📝</span> 0/3</span></td>
-                                <td><span class="warning-indicator"><span>⚠️</span> 0/2</span></td>
-                            </tr>
-                            <tr>
-                                <td class="empty-slot">-</td>
-                                <td class="empty-slot">-</td>
-                                <td><span class="rank-pill">Пусто</span></td>
-                                <td>Жрец</td>
-                                <td><span class="warning-indicator"><span>📝</span> 0/3</span></td>
-                                <td><span class="warning-indicator"><span>⚠️</span> 0/2</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </section>
+<nav class="main-nav">
+    <div class="nav-container">
+        <div class="nav-logo" onclick="scrollToTop()"><i class="fas fa-feather-alt"></i> Культ</div>
+        <ul class="nav-links">
+            <li><a href="#" data-section="home" class="nav-link active">О культе</a></li>
+            <li><a href="#" data-section="ranks" class="nav-link">Система повышения</a></li>
+            <li><a href="#" data-section="codex" class="nav-link">Наставление адептов</a></li>
+            <li><a href="#" data-section="staff" class="nav-link">Паства</a></li>
+        </ul>
     </div>
+</nav>
+<div class="nav-toggle" id="navToggle"><i class="fas fa-bars"></i></div>
 
-    <script>
-        // Навигация
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                document.querySelectorAll('.page-section, .nav-link').forEach(el => el.classList.remove('active'));
-                document.getElementById(this.dataset.section).classList.add('active');
-                this.classList.add('active');
-                document.querySelector('.nav-links').classList.remove('active');
-                window.scrollTo({top:0, behavior:'smooth'});
-            });
-        });
+<div class="container">
+    <!-- РАЗДЕЛ О КУЛЬТЕ -->
+    <section id="home" class="page-section active">
+        <div class="hero">
+            <h1 class="hero-title">КУЛЬТ ВЕЧНОГО РАЯ</h1>
+            <p class="hero-sub">Путь к радости и покою под сенью Доумы</p>
+        </div>
 
-        document.getElementById('navToggle').addEventListener('click', () => {
-            document.querySelector('.nav-links').classList.toggle('active');
-        });
+        <div class="vault">
+            <h2 class="vault-title"><i class="fas fa-dove"></i> О Культе</h2>
+            <p>Культ Вечного Рая - религиозное движение, основанное великим Доумой, Второй Высшей Луной, служащее прикрытием для него и его последователей. Обязанность господина Доумы и его учеников - даровать каждому несчастному, пришедшему в храм, радость и покой. Божеством культа является некий "Создатель". А господин Доума - ниспосланный богом, способный общаться с ним.</p>
+            <p style="margin-top: 20px;">Каждый адепт стремится к просветлению через служение, улыбку и помощь ближним. Культ отвергает насилие над чистыми душами, но готов защищать своих последователей от любых угроз.</p>
+        </div>
 
-        function scrollToTop() {
+        <!-- Иерархия Культа (обновлённая) -->
+        <div class="vault">
+            <h2 class="vault-title"><i class="fas fa-sitemap"></i> Иерархия Культа</h2>
+            <div class="hierarchy-grid">
+                <div class="hierarchy-card"><div class="rank-badge">1</div><div class="hierarchy-name">Доума</div><div class="hierarchy-title">Лидер, основатель</div><ul class="duty-list"><li><i class="fas fa-angle-right"></i> Источник всех истин</li><li><i class="fas fa-angle-right"></i> Проводник душ в Вечный Рай</li><li><i class="fas fa-angle-right"></i> Принимает ключевые решения</li><li><i class="fas fa-angle-right"></i> Единственный, кто достоин поклонения</li></ul></div>
+                <div class="hierarchy-card"><div class="rank-badge">2</div><div class="hierarchy-name">Привязанная низшая луна</div><div class="hierarchy-title">Зам, Голос Доумы</div><ul class="duty-list"><li><i class="fas fa-angle-right"></i> Исполнение воли Доумы</li><li><i class="fas fa-angle-right"></i> Наблюдение за ритуалами</li><li><i class="fas fa-angle-right"></i> Принятие апостолов</li><li><i class="fas fa-angle-right"></i> Распоряжение делами в отсутствие лидера</li></ul></div>
+                <div class="hierarchy-card"><div class="rank-badge">3</div><div class="hierarchy-name">Апостолы</div><div class="hierarchy-title">Советники лидера</div><ul class="duty-list"><li><i class="fas fa-angle-right"></i> Помощники лидера</li><li><i class="fas fa-angle-right"></i> Наблюдение за культистами</li><li><i class="fas fa-angle-right"></i> Слежка за порядком внутри культа</li><li><i class="fas fa-angle-right"></i> Сбор подношений</li></ul></div>
+                <div class="hierarchy-card"><div class="rank-badge">4</div><div class="hierarchy-name">Наставник</div><div class="hierarchy-title">Наставник</div><ul class="duty-list"><li><i class="fas fa-angle-right"></i> Обучение служителей и адептов</li><li><i class="fas fa-angle-right"></i> Поддержание порядка в составе</li><li><i class="fas fa-angle-right"></i> Проведение обрядов посвящения</li></ul></div>
+                <div class="hierarchy-card"><div class="rank-badge">5</div><div class="hierarchy-name">Служитель</div><div class="hierarchy-title">Служитель</div><ul class="duty-list"><li><i class="fas fa-angle-right"></i> Активное участие в жизни культа</li><li><i class="fas fa-angle-right"></i> Подношения алтарю</li><li><i class="fas fa-angle-right"></i> Изучение обрядов и ритуалов</li></ul></div>
+                <div class="hierarchy-card"><div class="rank-badge">6</div><div class="hierarchy-name">Адепт</div><div class="hierarchy-title">Ищущий путь</div><ul class="duty-list"><li><i class="fas fa-angle-right"></i> Прохождение испытательного срока</li><li><i class="fas fa-angle-right"></i> Знакомство с культом</li><li><i class="fas fa-angle-right"></i> Изучение основ</li><li><i class="fas fa-angle-right"></i> Обряд очищения</li></ul></div>
+            </div>
+        </div>
+
+        <!-- 6 заповедей (вместо 11) -->
+        <div class="vault">
+            <h2 class="vault-title"><i class="fas fa-book-open"></i> Шесть заповедей Доумы</h2>
+            <div class="commandment-grid">
+                <div class="commandment-item"><span class="commandment-num">一</span><div class="commandment-name">Радость бытия</div><div class="commandment-desc">Всегда улыбайся, твоя улыбка дарит счастье другим.</div></div>
+                <div class="commandment-item"><span class="commandment-num">二</span><div class="commandment-name">Отречение</div><div class="commandment-desc">Оставь привязанность к миру - он лишь тень истинного счастья.</div></div>
+                <div class="commandment-item"><span class="commandment-num">三</span><div class="commandment-name">Равенство</div><div class="commandment-desc">Перед Доумой все души равны, нет высших и низших.</div></div>
+                <div class="commandment-item"><span class="commandment-num">四</span><div class="commandment-name">Милосердие</div><div class="commandment-desc">Помогай другим обрести веру, даже если они сопротивляются.</div></div>
+                <div class="commandment-item"><span class="commandment-num">五</span><div class="commandment-name">Чистота</div><div class="commandment-desc">Содержи в чистоте тело и помыслы, Доума видит всё.</div></div>
+                <div class="commandment-item"><span class="commandment-num">六</span><div class="commandment-name">Жертва</div><div class="commandment-desc">Не бойся отдать часть себя - рай воздаст сторицей.</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- СИСТЕМА ПОВЫШЕНИЯ (баллы, пороги) -->
+    <section id="ranks" class="page-section">
+        <div class="hero">
+            <h1 class="hero-title">Система повышения</h1>
+            <p class="hero-sub">Ступени веры и награда за служение</p>
+        </div>
+        <div class="vault">
+            <h2 class="vault-title"><i class="fas fa-chart-line"></i> Начисление баллов</h2>
+            <table class="points-table">
+                <thead><tr><th>Действие</th><th>Баллы</th></tr></thead>
+                <tbody>
+                    <tr><td>Убийство истребителя</td><td>1 балл</td></tr>
+                    <tr><td>Убийство столпа</td><td>2 балла</td></tr>
+                    <tr><td>Захват точек (от 5)</td><td>5 баллов</td></tr>
+                    <tr><td>Участие в МП (тренировки и т.п.)</td><td>5 баллов</td></tr>
+                    <tr><td>Участие в МП отряда</td><td>5 баллов</td></tr>
+                    <tr><td>Участие в ивентах/событиях</td><td>10 баллов</td></tr>
+                    <tr><td>Участие в ГРП</td><td>15 баллов</td></tr>
+                    <tr><td>Проведение МП отряда</td><td>10 баллов</td></tr>
+                    <tr><td>Проведение сборов (на вылазки, тренировки)</td><td>5 баллов</td></tr>
+                    <tr><td>Поручения от Лун (низшая)</td><td>10 баллов</td></tr>
+                    <tr><td>Поручения от Лун (высшая)</td><td>10 баллов</td></tr>
+                    <tr><td>Поручения от Апостолов</td><td>5 баллов</td></tr>
+                    <tr><td>Поручение от Лидера отряда</td><td>10 баллов</td></tr>
+                </tbody>
+            </table>
+            <div class="info-note" style="margin-top:20px;">Лимиты: за ранг разрешено выполнять не более 5 убийств истребителей, 3 убийств столпов и т.д. Подробности у наставника.</div>
+        </div>
+
+        <div class="vault">
+            <h2 class="vault-title"><i class="fas fa-arrow-up"></i> Пороги повышения</h2>
+            <p>Для перехода на следующую ступень необходимо набрать определённое количество баллов и выполнить особые требования.</p>
+            <div class="rank-selector">
+                <span>Ваш текущий ранг:</span>
+                <select id="rankSelect">
+                    <option value="adept">Адепт</option>
+                    <option value="sluzhitel" selected>Служитель</option>
+                    <option value="nastavnik">Наставник</option>
+                    <option value="apostol">Апостол</option>
+                    <option value="prizyv">Привязанная низшая луна</option>
+                </select>
+            </div>
+            <div class="promo-block" id="promoBlock">
+                <div class="promo-header">
+                    <div><h3 class="promo-title" id="promoTitle">Переход со Служителя на Наставника</h3></div>
+                    <div class="promo-cooldown"><span id="promoCooldown">⏳ Требуется: 20 баллов</span></div>
+                </div>
+                <div class="requirements-grid" id="reqGrid" style="display:flex; flex-direction:column; gap:10px;">
+                    <div class="requirement-item"><span>Необходимо баллов:</span><span id="reqPoints">20</span></div>
+                    <div class="requirement-item"><span>Обряд посвящения</span><span>Обязательно</span></div>
+                    <div class="requirement-item"><span>Подношение алтарю</span><span>Обязательно</span></div>
+                </div>
+                <div class="promo-note" style="margin-top:20px;">Следующая ступень (Наставник) требует 20 баллов, Апостол - 30, Привязанная низшая луна - 40.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- НАСТАВЛЕНИЕ АДЕПТОВ (бывшее обучение неофитов) -->
+    <section id="codex" class="page-section">
+        <div class="hero">
+            <h1 class="hero-title">Наставление адептов</h1>
+            <p class="hero-sub">Как принять нового члена в лоно культа</p>
+        </div>
+        <div class="vault">
+            <h2 class="vault-title"><i class="fas fa-hands-helping"></i> Обучение адепта</h2>
+            <div class="stage-block">
+                <div class="stage-title">Стадия 1: Приветствие</div>
+                <p>Встретив ищущего, проводи его к алтарю. Предложи ему воду и хлеб. Обратись с улыбкой и спроси, что привело его в храм.</p>
+                <div class="cmd-box">"Брат/сестра, Доума видит твоё сердце. Расскажи о желании обрести рай."</div>
+            </div>
+            <div class="stage-block">
+                <div class="stage-title">Стадия 2: Очищение</div>
+                <p>Проведи обряд омовения. Окропи водой с лепестками, приговаривая: "Смой всё мирское, оставь только свет".</p>
+                <div class="warning" style="background:rgba(122,179,200,0.1); border-left-color:var(--light-blue);">Важно: Сохраняй доброжелательность и улыбку.</div>
+            </div>
+            <div class="stage-block">
+                <div class="stage-title">Стадия 3: Посвящение</div>
+                <p>Зачитай адепту шесть заповедей Доумы, объясни иерархию. Покажи, как совершать поклоны и петь гимны.</p>
+            </div>
+            <div class="stage-block">
+                <div class="stage-title">Стадия 4: Испытание веры</div>
+                <p>Попроси адепта совершить первое подношение и публично произнести имя Доумы. Если справился - обряд завершён.</p>
+            </div>
+            <div class="stage-block">
+                <div class="stage-title">Стадия 5: Заключение</div>
+                <p>Проведи нового адепта по храму, покажи алтарь, место для пожертвований. Заверши общей молитвой. Отправь отчёт наставнику в Discord.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ПАСТВА (состав культа) -->
+    <section id="staff" class="page-section">
+        <div class="hero">
+            <h1 class="hero-title">Паства Культа</h1>
+            <p class="hero-sub">Верные последователи Доумы</p>
+        </div>
+        <div class="vault">
+            <h2 class="vault-title"><i class="fas fa-users"></i> Состав культа</h2>
+            <table class="cult-table">
+                <thead><tr><th>Имя</th><th>Дискорд</th><th>Ранг</th><th>Должность</th></tr></thead>
+                <tbody>
+                    <tr><td>Доума</td><td><span class="discord-tag">doum3_ever</span></td><td><span class="rank-pill">Лидер</span></td><td>Основатель</td></tr>
+                    <tr><td class="empty-slot">-</td><td class="empty-slot">-</td><td><span class="rank-pill">Низшая луна</span></td><td>Зам. Голос Доумы</td></tr>
+                    <tr><td class="empty-slot">-</td><td class="empty-slot">-</td><td><span class="rank-pill">Апостол</span></td><td>Советник</td></tr>
+                    <tr><td class="empty-slot">-</td><td class="empty-slot">-</td><td><span class="rank-pill">Наставник</span></td><td>Наставник</td></tr>
+                    <tr><td>Акира Накамура</td><td><span class="discord-tag">akira_n</span></td><td><span class="rank-pill">Служитель</span></td><td>Служитель</td></tr>
+                    <tr><td class="empty-slot">-</td><td class="empty-slot">-</td><td><span class="rank-pill">Адепт</span></td><td>Ищущий</td></tr>
+                </tbody>
+            </table>
+            <div class="progress-track" style="margin-top:30px;"><div class="progress-fill" style="width:25%; background: var(--light-blue);"></div></div>
+            <div style="display:flex; justify-content:space-between;"><span>Заполненность состава: 25%</span><span>Свободно мест: много</span></div>
+        </div>
+    </section>
+</div>
+
+<script>
+    // Навигация
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelectorAll('.page-section, .nav-link').forEach(el => el.classList.remove('active'));
+            document.getElementById(this.dataset.section).classList.add('active');
+            this.classList.add('active');
+            document.querySelector('.nav-links')?.classList.remove('active');
             window.scrollTo({top:0, behavior:'smooth'});
-        }
+        });
+    });
+    document.getElementById('navToggle')?.addEventListener('click', () => {
+        document.querySelector('.nav-links')?.classList.toggle('active');
+    });
+    function scrollToTop() { window.scrollTo({top:0, behavior:'smooth'}); }
 
-        // Данные ступеней для промо-блока
-        const rankData = {
-            neophyte: {
-                title: "Переход с Неофита на Верующего",
-                desc: "Ищущий свет, прошедший первое очищение",
-                cooldown: "0 дней",
-                points: "0 баллов (достигнуто)",
-                requirements: ["Обряд очищения", "Первое подношение"]
-            },
-            believer: {
-                title: "Переход с Верующего на Проповедника",
-                desc: "Активный член общины",
-                cooldown: "1 день",
-                points: "12 баллов",
-                requirements: ["Две исповеди", "Участие в трёх службах"]
-            },
-            preacher: {
-                title: "Переход с Проповедника на Жреца",
-                desc: "Странник веры",
-                cooldown: "2 дня",
-                points: "24 балла",
-                requirements: ["Провести обряд очищения для неофита", "Совершить паломничество"]
-            },
-            priest: {
-                title: "Переход с Жреца на Первосвященника",
-                desc: "Хранитель алтаря",
-                cooldown: "3 дня",
-                points: "36 баллов",
-                requirements: ["Организовать великий праздник", "Получить благословение от Первосвященника"]
-            },
-            highpriest: {
-                title: "Вершина: Первосвященник",
-                desc: "Голос Доуме",
-                cooldown: "—",
-                points: "—",
-                requirements: ["Достигнуто"]
-            }
-        };
-
-        const rankSelect = document.getElementById('rankSelect');
-        const promoTitle = document.getElementById('promoTitle');
-        const promoDesc = document.getElementById('promoDesc');
-        const promoCooldown = document.getElementById('promoCooldown');
-        const reqPoints = document.getElementById('reqPoints');
-        const requirementsCat = document.querySelector('.requirement-cat:first-child');
-
-        function updatePromo(rankKey) {
-            const data = rankData[rankKey];
-            if (!data) return;
-            
-            promoTitle.textContent = data.title;
-            promoDesc.textContent = data.desc;
-            promoCooldown.innerHTML = `⏳ ${data.cooldown}`;
-            reqPoints.textContent = data.points;
-            
-            // Обновляем требования
-            const reqItems = requirementsCat.querySelectorAll('.requirement-item');
-            for (let i = reqItems.length - 1; i > 0; i--) {
-                reqItems[i].remove();
-            }
-            
-            data.requirements.forEach(req => {
-                const newReq = document.createElement('div');
-                newReq.className = 'requirement-item';
-                newReq.innerHTML = `<span class="requirement-name">${req}</span><span class="requirement-value">Обязательно</span>`;
-                requirementsCat.appendChild(newReq);
-            });
-        }
-
-        if (rankSelect) {
-            rankSelect.addEventListener('change', (e) => updatePromo(e.target.value));
-            // Инициализация для выбранного по умолчанию (Верующий)
-            updatePromo('believer');
-        }
-    </script>
+    // Система повышения (динамические требования)
+    const rankMap = {
+        adept: { next: "Служитель", points: 10, req: "Пройти обряд очищения, принести клятву" },
+        sluzhitel: { next: "Наставник", points: 20, req: "Провести обучение адепта, собрать 5 подношений" },
+        nastavnik: { next: "Апостол", points: 30, req: "Подготовить двух служителей, получить одобрение зам. лидера" },
+        apostol: { next: "Привязанная низшая луна", points: 40, req: "Организовать великий ритуал, доказать преданность" },
+        prizyv: { next: "Вершина", points: 0, req: "Достигнуто" }
+    };
+    const rankSelect = document.getElementById('rankSelect');
+    const promoTitle = document.getElementById('promoTitle');
+    const promoCooldown = document.getElementById('promoCooldown');
+    const reqPoints = document.getElementById('reqPoints');
+    function updatePromo() {
+        let val = rankSelect.value;
+        let data = rankMap[val];
+        if (!data) return;
+        promoTitle.innerText = `Переход с ${rankSelect.options[rankSelect.selectedIndex].text} на ${data.next}`;
+        promoCooldown.innerText = `⏳ Требуется: ${data.points} баллов`;
+        reqPoints.innerText = data.points;
+        document.querySelector('#reqGrid .requirement-item:first-child span:last-child').innerText = data.points;
+        document.querySelector('#reqGrid .requirement-item:nth-child(2) span:last-child').innerText = data.req;
+    }
+    if(rankSelect) rankSelect.addEventListener('change', updatePromo);
+    updatePromo();
+</script>
 </body>
 </html>
