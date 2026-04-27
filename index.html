@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Культ Вечного Рая — Северное сияние</title>
+    <title>Культ Вечного Рая — Храм вечного снега</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
@@ -21,7 +21,7 @@
             --ice-glow: #6ca6c9;
             --snow-white: #f0f6fe;
             --card-bg-light: rgba(25, 70, 95, 0.65);
-            --card-border: rgba(108, 166, 201, 0.4);
+            --card-border: rgba(108, 166, 201, 0.45);
             --glass: rgba(12, 45, 60, 0.75);
             --glass-border: rgba(108, 166, 201, 0.35);
             --glow: 0 10px 25px -8px black;
@@ -41,7 +41,6 @@
             position: relative;
         }
 
-        /* Мерцание северного сияния (очень мягкое) */
         body::before {
             content: '';
             position: fixed;
@@ -51,7 +50,7 @@
             height: 100%;
             pointer-events: none;
             background: radial-gradient(3px 3px at 10% 20%, rgba(108,166,201,0.2), transparent),
-                        radial-gradient(4px 4px at 90% 70%, rgba(255,255,245,0.15), transparent);
+                        radial-gradient(4px 4px at 90% 70%, rgba(255,255,245,0.12), transparent);
             animation: aurora 12s infinite alternate;
             z-index: 0;
         }
@@ -60,7 +59,6 @@
             100% { opacity: 0.7; }
         }
 
-        /* Бесконечный снегопад */
         .snow-container {
             position: fixed;
             top: 0;
@@ -94,7 +92,7 @@
             left: 50%;
             transform: translateX(-50%);
             width: auto;
-            background: rgba(10, 42, 56, 0.8);
+            background: rgba(10, 42, 56, 0.85);
             backdrop-filter: blur(16px);
             border-radius: 60px;
             border: 1px solid var(--card-border);
@@ -213,6 +211,52 @@
         .vault-title i {
             color: var(--snow-white);
             font-size: 1.9rem;
+        }
+
+        /* Три новых блока: сетка для карточек */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+        .info-card {
+            background: var(--card-bg-light);
+            border-radius: 26px;
+            padding: 26px;
+            border: 1px solid var(--card-border);
+            transition: all 0.2s;
+        }
+        .info-card:hover {
+            border-color: var(--ice-glow);
+            transform: translateY(-3px);
+            background: rgba(35, 85, 110, 0.75);
+        }
+        .info-card h3 {
+            font-size: 1.6rem;
+            font-family: var(--font-head);
+            color: var(--ice-glow);
+            margin-bottom: 18px;
+            border-bottom: 1px dashed var(--card-border);
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .rule-list {
+            list-style: none;
+            margin-top: 10px;
+        }
+        .rule-list li {
+            margin: 12px 0;
+            padding-left: 28px;
+            position: relative;
+        }
+        .rule-list li:before {
+            content: '❄️';
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 1rem;
         }
 
         .hierarchy-grid, .commandment-grid {
@@ -441,17 +485,79 @@
 <div class="nav-toggle" id="navToggle"><i class="fas fa-snowflake"></i></div>
 
 <div class="container">
+    <!-- ГЛАВНАЯ СТРАНИЦА С РАСШИРЕННЫМИ БЛОКАМИ -->
     <section id="home" class="page-section active">
         <div class="hero">
             <h1 class="hero-title">КУЛЬТ ВЕЧНОГО РАЯ</h1>
             <p class="hero-sub">Лёд, снег и улыбка Доумы</p>
         </div>
+
+        <!-- О Культе (базовое описание) -->
         <div class="vault">
             <h2 class="vault-title"><i class="fas fa-dove"></i> О Культе</h2>
             <p class="lead" style="font-size:1.2rem;">Культ Вечного Рая — религиозное движение, основанное великим Доумой, Второй Высшей Луной, служащее прикрытием для него и его последователей. Обязанность господина Доумы и его учеников — даровать каждому несчастному, пришедшему в храм, радость и покой. Божеством культа является некий "Создатель". А господин Доума — ниспосланный богом, способный общаться с ним.</p>
             <p style="margin-top: 18px;">Каждый адепт стремится к просветлению через служение, улыбку и помощь ближним. Наш путь подобен бесконечному снегопаду — холодному, но прекрасному.</p>
         </div>
 
+        <!-- НОВЫЙ БЛОК: ДЕЯТЕЛЬНОСТЬ КУЛЬТА -->
+        <div class="vault">
+            <h2 class="vault-title"><i class="fas fa-calendar-alt"></i> Деятельность культа</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3><i class="fas fa-praying-hands"></i> Служения</h3>
+                    <p>Вне зависимости от ситуации, любой последователь должен оставаться верным Доуме и своему делу. В рамках храма проходят различные мероприятия: чтение мантр, тренировки для культистов, исповедания, ритуалы и многое другое.</p>
+                </div>
+                <div class="info-card">
+                    <h3><i class="fas fa-hand-holding-heart"></i> Традиции</h3>
+                    <p>Еженедельные общие молитвы, дни очищения и праздники в честь Вечного Рая. Каждый адепт может внести предложение о проведении нового ритуала.</p>
+                </div>
+                <div class="info-card">
+                    <h3><i class="fas fa-chalkboard-teacher"></i> Обучение</h3>
+                    <p>Наставники культа проводят лекции о природе демонов и искусстве служения. Для новичков организуются курсы по изучению заповедей и храмовому этикету.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- НОВЫЙ БЛОК: ОТРЯД ТСУКИХИРОШИ -->
+        <div class="vault">
+            <h2 class="vault-title"><i class="fas fa-mask"></i> Отряд Тсукихироши</h2>
+            <p style="font-size:1.15rem; margin-bottom:20px;">Демоны отряда Тсукихироши — элитное подразделение, служащее под началом Второй Высшей Луны. Их задача — распространение веры в Вечный Рай, служба в храме и поддержание его порядка. Боевая функция отряда заточена на незаметном и бесшумном устранении цели, маскировке и добыче информации.</p>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3><i class="fas fa-feather-alt"></i> Вера</h3>
+                    <p>Распространение учения Доумы среди мирян, привлечение новых адептов, организация проповедей и миссионерская деятельность.</p>
+                </div>
+                <div class="info-card">
+                    <h3><i class="fas fa-shield-alt"></i> Порядок</h3>
+                    <p>Охрана храма, недопущение конфликтов, защита служителей и обеспечение безопасности во время ритуалов.</p>
+                </div>
+                <div class="info-card">
+                    <h3><i class="fas fa-eye"></i> Тайные операции</h3>
+                    <p>Бесшумное устранение угроз, сбор разведданных, слежка за недоброжелателями культа. Маскировка и скрытность — главные добродетели бойца.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- НОВЫЙ БЛОК: ПРАВИЛА ХРАМА (7 пунктов) -->
+        <div class="vault">
+            <h2 class="vault-title"><i class="fas fa-gavel"></i> Правила храма</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3><i class="fas fa-list"></i> Семь заповедей порядка</h3>
+                    <ul class="rule-list">
+                        <li>В прихожей гости должны снимать обувь.</li>
+                        <li>Запрещено проносить с собой оружие. Все предметы, потенциально несущие угрозу для человека у гостей, изымаются до конца служения.</li>
+                        <li>В храме запрещено шуметь. Все конфликты остаются за пределами храма.</li>
+                        <li>Категорически запрещены одурманивающие вещества.</li>
+                        <li>Все присутствующие в храме обязаны относиться друг к другу с уважением.</li>
+                        <li>Подношения не являются обязательной частью служения.</li>
+                        <li>Политика храма подразумевает, что мы принимаем в храм каждого человека, вне зависимости от социального статуса.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Иерархия Культа (должности) -->
         <div class="vault">
             <h2 class="vault-title"><i class="fas fa-sitemap"></i> Иерархия Культа</h2>
             <div class="hierarchy-grid">
@@ -464,6 +570,7 @@
             </div>
         </div>
 
+        <!-- 6 заповедей Доумы -->
         <div class="vault">
             <h2 class="vault-title"><i class="fas fa-feather-alt"></i> Шесть заповедей Доумы</h2>
             <div class="commandment-grid">
@@ -477,7 +584,7 @@
         </div>
     </section>
 
-    <!-- СИСТЕМА ПОВЫШЕНИЯ -->
+    <!-- СИСТЕМА ПОВЫШЕНИЯ (10 РАНГОВ ДЕМОНОВ) -->
     <section id="ranks" class="page-section">
         <div class="hero">
             <h1 class="hero-title">Система повышения</h1>
