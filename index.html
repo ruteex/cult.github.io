@@ -175,11 +175,6 @@
             background-clip: text;
             color: transparent;
         }
-        .hero-sub {
-            font-size: 1.4rem;
-            color: var(--ice-glow);
-            font-style: italic;
-        }
 
         .vault {
             background: var(--glass);
@@ -213,7 +208,6 @@
             font-size: 1.9rem;
         }
 
-        /* Три новых блока: сетка для карточек */
         .info-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -485,21 +479,18 @@
 <div class="nav-toggle" id="navToggle"><i class="fas fa-snowflake"></i></div>
 
 <div class="container">
-    <!-- ГЛАВНАЯ СТРАНИЦА С РАСШИРЕННЫМИ БЛОКАМИ -->
+    <!-- ГЛАВНАЯ СТРАНИЦА -->
     <section id="home" class="page-section active">
         <div class="hero">
             <h1 class="hero-title">КУЛЬТ ВЕЧНОГО РАЯ</h1>
-            <p class="hero-sub">Лёд, снег и улыбка Доумы</p>
         </div>
 
-        <!-- О Культе (базовое описание) -->
         <div class="vault">
             <h2 class="vault-title"><i class="fas fa-dove"></i> О Культе</h2>
-            <p class="lead" style="font-size:1.2rem;">Культ Вечного Рая — религиозное движение, основанное великим Доумой, Второй Высшей Луной, служащее прикрытием для него и его последователей. Обязанность господина Доумы и его учеников — даровать каждому несчастному, пришедшему в храм, радость и покой. Божеством культа является некий "Создатель". А господин Доума — ниспосланный богом, способный общаться с ним.</p>
-            <p style="margin-top: 18px;">Каждый адепт стремится к просветлению через служение, улыбку и помощь ближним. Наш путь подобен бесконечному снегопаду — холодному, но прекрасному.</p>
+            <p style="font-size:1.2rem;">Культ Вечного Рая — религиозное движение, основанное великим Доумой, Второй Высшей Луной, служащее прикрытием для него и его последователей. Обязанность господина Доумы и его учеников — даровать каждому несчастному, пришедшему в храм, радость и покой. Божеством культа является некий "Создатель". А господин Доума — ниспосланный богом, способный общаться с ним.</p>
+            <p style="margin-top: 18px; font-size:1.2rem;">Каждый адепт стремится к просветлению через служение, улыбку и помощь ближним. Наш путь подобен бесконечному снегопаду — холодному, но прекрасному.</p>
         </div>
 
-        <!-- НОВЫЙ БЛОК: ДЕЯТЕЛЬНОСТЬ КУЛЬТА -->
         <div class="vault">
             <h2 class="vault-title"><i class="fas fa-calendar-alt"></i> Деятельность культа</h2>
             <div class="info-grid">
@@ -518,7 +509,6 @@
             </div>
         </div>
 
-        <!-- НОВЫЙ БЛОК: ОТРЯД ТСУКИХИРОШИ -->
         <div class="vault">
             <h2 class="vault-title"><i class="fas fa-mask"></i> Отряд Тсукихироши</h2>
             <p style="font-size:1.15rem; margin-bottom:20px;">Демоны отряда Тсукихироши — элитное подразделение, служащее под началом Второй Высшей Луны. Их задача — распространение веры в Вечный Рай, служба в храме и поддержание его порядка. Боевая функция отряда заточена на незаметном и бесшумном устранении цели, маскировке и добыче информации.</p>
@@ -538,7 +528,6 @@
             </div>
         </div>
 
-        <!-- НОВЫЙ БЛОК: ПРАВИЛА ХРАМА (7 пунктов) -->
         <div class="vault">
             <h2 class="vault-title"><i class="fas fa-gavel"></i> Правила храма</h2>
             <div class="info-grid">
@@ -557,7 +546,6 @@
             </div>
         </div>
 
-        <!-- Иерархия Культа (должности) -->
         <div class="vault">
             <h2 class="vault-title"><i class="fas fa-sitemap"></i> Иерархия Культа</h2>
             <div class="hierarchy-grid">
@@ -570,7 +558,6 @@
             </div>
         </div>
 
-        <!-- 6 заповедей Доумы -->
         <div class="vault">
             <h2 class="vault-title"><i class="fas fa-feather-alt"></i> Шесть заповедей Доумы</h2>
             <div class="commandment-grid">
@@ -584,7 +571,7 @@
         </div>
     </section>
 
-    <!-- СИСТЕМА ПОВЫШЕНИЯ (10 РАНГОВ ДЕМОНОВ) -->
+    <!-- СИСТЕМА ПОВЫШЕНИЯ -->
     <section id="ranks" class="page-section">
         <div class="hero">
             <h1 class="hero-title">Система повышения</h1>
@@ -602,7 +589,7 @@
                     <tr><td>Участие в ивентах / событиях</td><td>10 баллов</td></tr>
                     <tr><td>Участие в ГРП</td><td>15 баллов</td></tr>
                     <tr><td>Проведение МП отряда / сборов</td><td>5–10 баллов</td></tr>
-                    <tr><td>Поручения от Лун, Апостолов, Лидера</td><td>5–10 баллов</td></tr>
+                    <tr><td>Поручения от Лун, Апостолов, Лидера</td><td>5–10 баллов</td></td>
                 </tbody>
             </table>
             <div class="promo-note" style="margin-top:0;">Баллы накапливаются за всё время пребывания в текущем ранге. Для перехода на следующий ранг необходимо набрать указанный порог и выполнить обязательные ритуалы.</div>
@@ -646,7 +633,7 @@
         </div>
         <div class="vault">
             <h2 class="vault-title"><i class="fas fa-hands-helping"></i> Обучение адепта</h2>
-            <div class="stage-block"><div class="stage-title">Стадия 1: Приветствие</div><p>Встретив ищущего, проводи его к алтарю. Предложи ему воду и хлеб. Обратись с улыбкой и спроси, что привело его в храм.</p><div class="cmd-box">"Брат/сестра, Доума видит твоё сердце. Расскажи о желании обрести рай."</div></div>
+            <div class="stage-block"><div class="stage-title">Стадия 1: Приветствие</div><p>Встретив ищущего, проводи его к алтарю. Предложи ему воду и хлеб. Обратись с улыбкой и спроси, что привело его в храм.</p></div>
             <div class="stage-block"><div class="stage-title">Стадия 2: Очищение</div><p>Проведи обряд омовения. Окропи водой с лепестками, приговаривая: "Смой всё мирское, оставь только свет".</p><div style="background:rgba(108,166,201,0.15); border-left:3px solid var(--ice-glow); padding:12px;">Важно: Сохраняй доброжелательность и улыбку.</div></div>
             <div class="stage-block"><div class="stage-title">Стадия 3: Посвящение</div><p>Зачитай адепту шесть заповедей Доумы, объясни иерархию. Покажи, как совершать поклоны и петь гимны.</p></div>
             <div class="stage-block"><div class="stage-title">Стадия 4: Испытание веры</div><p>Попроси адепта совершить первое подношение и публично произнести имя Доумы. Если справился — обряд завершён.</p></div>
@@ -654,7 +641,7 @@
         </div>
     </section>
 
-    <!-- ПАСТВА -->
+    <!-- ПАСТВА (без Акиры) -->
     <section id="staff" class="page-section">
         <div class="hero">
             <h1 class="hero-title">Паства Культа</h1>
@@ -665,16 +652,46 @@
             <table class="cult-table">
                 <thead><tr><th>Имя</th><th>Дискорд</th><th>Ранг</th><th>Должность</th></tr></thead>
                 <tbody>
-                    <tr><td>Доума</td><td><span class="discord-tag">doum3_ever</span></td><td><span class="rank-pill">Лидер</span></td><td>Основатель</td></tr>
-                    <tr><td class="empty-slot">Вакансия</td><td class="empty-slot">-</td><td><span class="rank-pill">Привязанная луна</span></td><td>Зам. Голос Доумы</td></tr>
-                    <tr><td class="empty-slot">Вакансия</td><td class="empty-slot">-</td><td><span class="rank-pill">Апостол</span></td><td>Советник</td></tr>
-                    <tr><td class="empty-slot">Вакансия</td><td class="empty-slot">-</td><td><span class="rank-pill">Наставник</span></td><td>Наставник</td></tr>
-                    <tr><td>Акира Накамура</td><td><span class="discord-tag">akira_n</span></td><td><span class="rank-pill">Служитель</span></td><td>Служитель</td></tr>
-                    <tr><td class="empty-slot">-</td><td class="empty-slot">-</td><td><span class="rank-pill">Адепт</span></td><td>Ищущий</td></tr>
+                    <tr>
+                        <td>Доума</td>
+                        <td><span class="discord-tag">bicenklaus</span></td>
+                        <td><span class="rank-pill">Лидер</span></td>
+                        <td>Основатель</td>
+                    </tr>
+                    <tr>
+                        <td class="empty-slot">Вакансия</td>
+                        <td class="empty-slot">-</td>
+                        <td><span class="rank-pill">Привязанная луна</span></td>
+                        <td>Зам. Голос Доумы</td>
+                    </tr>
+                    <tr>
+                        <td class="empty-slot">Вакансия</td>
+                        <td class="empty-slot">-</td>
+                        <td><span class="rank-pill">Апостол</span></td>
+                        <td>Советник</td>
+                    </tr>
+                    <tr>
+                        <td class="empty-slot">Вакансия</td>
+                        <td class="empty-slot">-</td>
+                        <td><span class="rank-pill">Наставник</span></td>
+                        <td>Наставник</td>
+                    </tr>
+                    <tr>
+                        <td class="empty-slot">Вакансия</td>
+                        <td class="empty-slot">-</td>
+                        <td><span class="rank-pill">Служитель</span></td>
+                        <td>Служитель</td>
+                    </tr>
+                    <tr>
+                        <td class="empty-slot">-</td>
+                        <td class="empty-slot">-</td>
+                        <td><span class="rank-pill">Адепт</span></td>
+                        <td>Ищущий</td>
+                    </tr>
                 </tbody>
             </table>
-            <div class="progress-track"><div class="progress-fill" style="width: 28%;"></div></div>
-            <div style="display: flex; justify-content: space-between;"><span>Заполненность состава: 28%</span><span>Примите свет в свои души</span></div>
+            <div class="progress-track"><div class="progress-fill" style="width: 18%;"></div></div>
+            <div style="display: flex; justify-content: space-between;"><span>Заполненность состава: ~18%</span><span>Примите свет в свои души</span></div>
         </div>
     </section>
 </div>
@@ -713,7 +730,7 @@
     });
     function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
 
-    // Данные рангов (баллы + ритуалы)
+    // Данные рангов
     const ranksRequirements = {
         Hinaga: { next: "Kagebosi", points: 5, requirements: ["Необходимый порог баллов: 5", "Пройти обряд посвящения", "Пробудить свою магию крови"] },
         Kagebosi: { next: "Yamabiko", points: 10, requirements: ["Необходимый порог баллов: 10", "Съесть пять истребителей", "Пройти проверку на знание клятвы крови у инструкторов или Лун", "Принять участие в любой тренировке"] },
