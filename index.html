@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Культ Вечного Рая — Снежная чистота истины</title>
-    <!-- Шрифты -->
+    <title>Культ Вечного Рая — Северное сияние</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
@@ -17,61 +16,88 @@
         }
 
         :root {
-            --bg-deep: #0a1f2e;
-            --bg-mid: #133c4f;
-            --accent-light: #7fc1d9;
-            --accent-gold: #e1bc91;
-            --text-snow: #f0f6fa;
-            --text-soft: #cddfe7;
-            --glass: rgba(18, 45, 60, 0.65);
-            --glass-border: rgba(127, 193, 217, 0.35);
-            --glow: 0 8px 20px rgba(0,0,0,0.3);
+            --night-blue: #0a2a38;
+            --deep-water: #103e52;
+            --ice-glow: #6ca6c9;
+            --snow-white: #f0f6fe;
+            --card-bg-light: rgba(25, 70, 95, 0.65);
+            --card-border: rgba(108, 166, 201, 0.4);
+            --glass: rgba(12, 45, 60, 0.75);
+            --glass-border: rgba(108, 166, 201, 0.35);
+            --glow: 0 10px 25px -8px black;
             --card-radius: 28px;
             --font-head: 'Inter', sans-serif;
             --font-body: 'Cormorant Garamond', serif;
         }
 
         body {
-            background: radial-gradient(circle at 10% 20%, #0f3144, #05161f);
-            color: var(--text-snow);
+            background: radial-gradient(circle at 15% 30%, #0f3448, #06222e);
+            color: var(--snow-white);
             font-family: var(--font-body);
             font-weight: 400;
             line-height: 1.55;
             min-height: 100vh;
-            position: relative;
             overflow-x: hidden;
+            position: relative;
         }
 
-        /* Снежинки */
-        .snowflake {
+        /* Мерцание северного сияния (очень мягкое) */
+        body::before {
+            content: '';
             position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background: radial-gradient(3px 3px at 10% 20%, rgba(108,166,201,0.2), transparent),
+                        radial-gradient(4px 4px at 90% 70%, rgba(255,255,245,0.15), transparent);
+            animation: aurora 12s infinite alternate;
+            z-index: 0;
+        }
+        @keyframes aurora {
+            0% { opacity: 0.3; }
+            100% { opacity: 0.7; }
+        }
+
+        /* Бесконечный снегопад */
+        .snow-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 200;
+            overflow: hidden;
+        }
+        .snowflake {
+            position: absolute;
             top: -10px;
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 1em;
+            color: rgba(240, 246, 254, 0.85);
             user-select: none;
             pointer-events: none;
-            z-index: 100;
-            animation: fall linear forwards;
             will-change: transform;
+            animation: fall linear forwards;
+            text-shadow: 0 0 3px rgba(0,0,0,0.2);
         }
         @keyframes fall {
             to {
-                transform: translateY(100vh);
+                transform: translateY(100vh) rotate(360deg);
                 opacity: 0.2;
             }
         }
 
-        /* Навигация */
         .main-nav {
             position: fixed;
             bottom: 30px;
             left: 50%;
             transform: translateX(-50%);
             width: auto;
-            background: rgba(10, 31, 46, 0.75);
-            backdrop-filter: blur(12px);
+            background: rgba(10, 42, 56, 0.8);
+            backdrop-filter: blur(16px);
             border-radius: 60px;
-            border: 1px solid var(--glass-border);
+            border: 1px solid var(--card-border);
             padding: 8px 20px;
             z-index: 1000;
             box-shadow: var(--glow);
@@ -90,11 +116,10 @@
             font-size: 1.5rem;
             font-weight: 600;
             font-family: var(--font-head);
-            color: var(--accent-light);
+            color: var(--ice-glow);
             padding: 5px 18px;
-            border-right: 1px solid var(--glass-border);
+            border-right: 1px solid var(--card-border);
             cursor: pointer;
-            letter-spacing: 1px;
         }
 
         .nav-links {
@@ -104,22 +129,22 @@
         }
 
         .nav-links a {
-            color: var(--text-soft);
+            color: var(--snow-white);
             text-decoration: none;
             padding: 10px 22px;
             border-radius: 50px;
             font-weight: 500;
             font-family: var(--font-head);
-            transition: 0.25s ease;
+            transition: 0.2s;
             font-size: 0.95rem;
             border: 1px solid transparent;
         }
 
         .nav-links a:hover, .nav-links a.active {
-            background: rgba(127, 193, 217, 0.2);
-            border-color: var(--accent-light);
+            background: rgba(108, 166, 201, 0.25);
+            border-color: var(--ice-glow);
             color: white;
-            box-shadow: 0 0 12px rgba(127,193,217,0.3);
+            box-shadow: 0 0 10px rgba(108,166,201,0.3);
         }
 
         .nav-toggle { display: none; }
@@ -145,41 +170,39 @@
         }
         .hero-title {
             font-family: var(--font-head);
-            font-size: 4.2rem;
+            font-size: 3.8rem;
             font-weight: 700;
-            background: linear-gradient(135deg, #ffffff, var(--accent-light), var(--accent-gold));
+            background: linear-gradient(135deg, #ffffff, var(--ice-glow), #bbdef5);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            letter-spacing: -0.5px;
-            text-shadow: 0 2px 15px rgba(0,0,0,0.2);
         }
         .hero-sub {
-            font-size: 1.5rem;
-            color: var(--accent-gold);
+            font-size: 1.4rem;
+            color: var(--ice-glow);
             font-style: italic;
-            font-weight: 300;
         }
 
         .vault {
             background: var(--glass);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(12px);
             border-radius: var(--card-radius);
             padding: 40px;
             margin: 40px 0;
             border: 1px solid var(--glass-border);
-            box-shadow: 0 20px 35px -20px black;
-            transition: transform 0.2s, border-color 0.2s;
+            box-shadow: var(--glow);
+            transition: 0.2s;
         }
         .vault:hover {
-            border-color: var(--accent-light);
+            border-color: var(--ice-glow);
+            background: rgba(16, 62, 82, 0.8);
         }
 
         .vault-title {
             font-family: var(--font-head);
-            font-size: 2.3rem;
+            font-size: 2.2rem;
             font-weight: 600;
-            color: var(--accent-light);
+            color: var(--ice-glow);
             margin-bottom: 28px;
             border-bottom: 2px dashed var(--glass-border);
             padding-bottom: 16px;
@@ -188,35 +211,34 @@
             gap: 14px;
         }
         .vault-title i {
-            color: var(--accent-gold);
-            font-size: 2rem;
+            color: var(--snow-white);
+            font-size: 1.9rem;
         }
 
-        /* Сетки и карточки */
-        .info-grid, .hierarchy-grid, .commandment-grid {
+        .hierarchy-grid, .commandment-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
             gap: 24px;
         }
-        .info-card, .hierarchy-card, .commandment-item {
-            background: rgba(19, 60, 79, 0.5);
+        .hierarchy-card, .commandment-item {
+            background: var(--card-bg-light);
             border-radius: 26px;
             padding: 26px;
-            border: 1px solid var(--glass-border);
-            transition: all 0.2s ease;
-            backdrop-filter: blur(2px);
+            border: 1px solid var(--card-border);
+            transition: all 0.2s;
+            position: relative;
         }
-        .info-card:hover, .hierarchy-card:hover, .commandment-item:hover {
-            border-color: var(--accent-light);
-            background: rgba(19, 60, 79, 0.7);
+        .hierarchy-card:hover, .commandment-item:hover {
+            border-color: var(--ice-glow);
             transform: translateY(-3px);
+            background: rgba(35, 85, 110, 0.75);
         }
-        .hierarchy-card .rank-badge {
+        .rank-badge {
             position: absolute;
             top: -12px;
             right: 22px;
-            background: var(--accent-light);
-            color: #0a1f2e;
+            background: var(--ice-glow);
+            color: #06222e;
             width: 44px;
             height: 44px;
             border-radius: 50%;
@@ -227,106 +249,139 @@
             font-family: var(--font-head);
             box-shadow: 0 2px 8px black;
         }
-        .hierarchy-card { position: relative; }
         .hierarchy-name {
-            font-size: 1.7rem;
+            font-size: 1.6rem;
             font-weight: 600;
             font-family: var(--font-head);
-            color: white;
+            color: var(--snow-white);
             margin-top: 5px;
         }
 
-        .commandment-num {
-            background: var(--accent-light);
-            color: #0a1f2e;
-            padding: 3px 14px;
-            border-radius: 40px;
-            display: inline-block;
-            font-weight: 700;
-        }
-        .commandment-name {
-            font-size: 1.5rem;
-            font-weight: 600;
-            font-family: var(--font-head);
-            margin: 10px 0 5px;
-        }
-
-        .stage-block {
-            background: rgba(19, 60, 79, 0.45);
-            border-radius: 26px;
-            padding: 28px;
-            margin: 25px 0;
-            border-left: 4px solid var(--accent-light);
-        }
-        .cmd-box {
-            background: #08212e;
-            padding: 16px 20px;
-            border-radius: 20px;
-            font-family: monospace;
-            border: 1px solid var(--accent-light);
-            margin: 16px 0;
-            color: var(--accent-gold);
-        }
-
-        /* Таблицы */
-        .points-table, .cult-table {
+        .points-table {
             width: 100%;
             border-collapse: collapse;
             margin: 20px 0;
         }
-        .points-table th, .points-table td, .cult-table th, .cult-table td {
+        .points-table th, .points-table td {
             padding: 12px 14px;
             border-bottom: 1px solid var(--glass-border);
             text-align: left;
         }
-        .points-table th, .cult-table th {
-            color: var(--accent-light);
-            font-weight: 600;
-        }
-        .discord-tag {
-            background: #1d4b60;
-            padding: 4px 12px;
-            border-radius: 40px;
-            font-size: 0.85rem;
-        }
-        .rank-pill {
-            background: var(--accent-light);
-            color: #0a1f2e;
-            padding: 2px 12px;
-            border-radius: 40px;
-            font-weight: 600;
+        .points-table th {
+            color: var(--ice-glow);
         }
 
-        .promo-block {
-            background: rgba(0,0,0,0.35);
-            border-radius: 28px;
-            padding: 30px;
-            margin-top: 20px;
-        }
         .rank-selector {
             display: flex;
             gap: 20px;
             align-items: center;
             flex-wrap: wrap;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
         #rankSelect {
-            background: #1d4b60;
-            border: 1px solid var(--accent-light);
+            background: #103e52;
+            border: 1px solid var(--ice-glow);
             border-radius: 60px;
             padding: 10px 24px;
             color: white;
             font-weight: 500;
+            font-family: var(--font-head);
+            cursor: pointer;
+        }
+        .promo-block {
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 28px;
+            padding: 30px;
+            backdrop-filter: blur(4px);
+        }
+        .promo-title {
+            font-size: 1.7rem;
+            color: var(--ice-glow);
+            margin-bottom: 10px;
+        }
+        .points-badge {
+            display: inline-block;
+            background: var(--ice-glow);
+            color: #06222e;
+            padding: 4px 18px;
+            border-radius: 40px;
+            font-weight: 700;
+            margin: 10px 0 15px;
+            font-size: 1.2rem;
+        }
+        .requirements-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+        .requirements-list li {
+            margin: 14px 0;
+            padding-left: 28px;
+            position: relative;
+            border-bottom: 1px dotted rgba(255,255,255,0.15);
+            padding-bottom: 10px;
+        }
+        .requirements-list li:before {
+            content: '❄️';
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 1rem;
+        }
+        .promo-note {
+            background: rgba(108, 166, 201, 0.15);
+            padding: 14px;
+            border-radius: 20px;
+            margin-top: 20px;
+            font-style: italic;
+        }
+
+        .stage-block {
+            background: rgba(25, 70, 95, 0.6);
+            border-radius: 26px;
+            padding: 28px;
+            margin: 25px 0;
+            border-left: 4px solid var(--ice-glow);
+        }
+        .cmd-box {
+            background: #0a2e3e;
+            padding: 16px 20px;
+            border-radius: 20px;
+            font-family: monospace;
+            border: 1px solid var(--ice-glow);
+            margin: 16px 0;
+            color: #d4eaff;
+        }
+        .cult-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .cult-table th, .cult-table td {
+            padding: 12px;
+            border-bottom: 1px solid var(--glass-border);
+            text-align: left;
+        }
+        .discord-tag {
+            background: #1a536b;
+            padding: 4px 12px;
+            border-radius: 40px;
+            font-size: 0.85rem;
+        }
+        .rank-pill {
+            background: var(--ice-glow);
+            color: #06222e;
+            padding: 2px 12px;
+            border-radius: 40px;
+            font-weight: 600;
         }
         .progress-track {
             height: 6px;
-            background: #1d4b60;
+            background: #1a536b;
             border-radius: 10px;
             margin: 20px 0;
         }
         .progress-fill {
             height: 100%;
-            background: linear-gradient(90deg, var(--accent-light), var(--accent-gold));
+            background: linear-gradient(90deg, var(--ice-glow), #b3def5);
             border-radius: 10px;
             width: 28%;
         }
@@ -338,7 +393,7 @@
                 left: 50%;
                 transform: translateX(-50%);
                 width: 88%;
-                background: #0a1f2ecc;
+                background: #0a2a38ee;
                 backdrop-filter: blur(20px);
                 flex-direction: column;
                 padding: 20px;
@@ -352,47 +407,29 @@
                 position: fixed;
                 bottom: 28px;
                 right: 28px;
-                background: var(--accent-light);
+                background: var(--ice-glow);
                 width: 54px;
                 height: 54px;
                 border-radius: 50%;
                 align-items: center;
                 justify-content: center;
                 font-size: 1.6rem;
-                color: #0a1f2e;
+                color: #06222e;
                 cursor: pointer;
                 z-index: 1002;
                 box-shadow: 0 2px 10px black;
             }
-            .hero-title { font-size: 2.8rem; }
+            .hero-title { font-size: 2.6rem; }
         }
     </style>
 </head>
 <body>
 
-<!-- Падающие снежинки -->
-<script>
-    function createSnow() {
-        const snowContainer = document.body;
-        const snowflakeCount = 65;
-        for (let i = 0; i < snowflakeCount; i++) {
-            let snow = document.createElement('div');
-            snow.classList.add('snowflake');
-            snow.innerHTML = '❄️';
-            snow.style.left = Math.random() * 100 + '%';
-            snow.style.fontSize = (Math.random() * 0.8 + 0.6) + 'rem';
-            snow.style.opacity = Math.random() * 0.6 + 0.2;
-            snow.style.animationDuration = Math.random() * 6 + 4 + 's';
-            snow.style.animationDelay = Math.random() * 8 + 's';
-            snowContainer.appendChild(snow);
-        }
-    }
-    createSnow();
-</script>
+<div class="snow-container" id="snowContainer"></div>
 
 <nav class="main-nav">
     <div class="nav-container">
-        <div class="nav-logo" onclick="scrollToTop()"><i class="fas fa-feather-alt"></i> 楽園</div>
+        <div class="nav-logo" onclick="scrollToTop()"><i class="fas fa-snowflake"></i> Вечный Рай</div>
         <ul class="nav-links">
             <li><a href="#" data-section="home" class="nav-link active">О культе</a></li>
             <li><a href="#" data-section="ranks" class="nav-link">Система повышения</a></li>
@@ -404,41 +441,38 @@
 <div class="nav-toggle" id="navToggle"><i class="fas fa-snowflake"></i></div>
 
 <div class="container">
-    <!-- РАЗДЕЛ О КУЛЬТЕ -->
     <section id="home" class="page-section active">
         <div class="hero">
             <h1 class="hero-title">КУЛЬТ ВЕЧНОГО РАЯ</h1>
-            <p class="hero-sub">雪 — чистота, покой и улыбка Доумы</p>
+            <p class="hero-sub">Лёд, снег и улыбка Доумы</p>
         </div>
         <div class="vault">
             <h2 class="vault-title"><i class="fas fa-dove"></i> О Культе</h2>
             <p class="lead" style="font-size:1.2rem;">Культ Вечного Рая — религиозное движение, основанное великим Доумой, Второй Высшей Луной, служащее прикрытием для него и его последователей. Обязанность господина Доумы и его учеников — даровать каждому несчастному, пришедшему в храм, радость и покой. Божеством культа является некий "Создатель". А господин Доума — ниспосланный богом, способный общаться с ним.</p>
-            <p style="margin-top: 18px;">Каждый адепт стремится к просветлению через служение, улыбку и помощь ближним. Культ отвергает насилие над чистыми душами, но готов защищать своих последователей от любых угроз. Наш путь — как падающий снег: лёгкий, неизбежный и прекрасный.</p>
+            <p style="margin-top: 18px;">Каждый адепт стремится к просветлению через служение, улыбку и помощь ближним. Наш путь подобен бесконечному снегопаду — холодному, но прекрасному.</p>
         </div>
 
-        <!-- Иерархия Культа (обновлённая по ТЗ) -->
         <div class="vault">
             <h2 class="vault-title"><i class="fas fa-sitemap"></i> Иерархия Культа</h2>
             <div class="hierarchy-grid">
-                <div class="hierarchy-card"><div class="rank-badge">1</div><div class="hierarchy-name">Доума</div><div class="hierarchy-title">Лидер, основатель</div><ul class="duty-list"><li><i class="fas fa-angle-right"></i> Источник всех истин</li><li><i class="fas fa-angle-right"></i> Проводник душ в Вечный Рай</li><li><i class="fas fa-angle-right"></i> Принимает ключевые решения</li><li><i class="fas fa-angle-right"></i> Единственный, кто достоин поклонения</li></ul></div>
-                <div class="hierarchy-card"><div class="rank-badge">2</div><div class="hierarchy-name">Привязанная низшая луна</div><div class="hierarchy-title">Зам, Голос Доумы</div><ul class="duty-list"><li><i class="fas fa-angle-right"></i> Исполнение воли Доумы</li><li><i class="fas fa-angle-right"></i> Наблюдение за ритуалами</li><li><i class="fas fa-angle-right"></i> Принятие апостолов</li><li><i class="fas fa-angle-right"></i> Распоряжение делами в отсутствие лидера</li></ul></div>
-                <div class="hierarchy-card"><div class="rank-badge">3</div><div class="hierarchy-name">Апостолы</div><div class="hierarchy-title">Советники лидера</div><ul class="duty-list"><li><i class="fas fa-angle-right"></i> Помощники лидера</li><li><i class="fas fa-angle-right"></i> Наблюдение за культистами</li><li><i class="fas fa-angle-right"></i> Сбор подношений</li><li><i class="fas fa-angle-right"></i> Слежка за порядком внутри культа</li></ul></div>
-                <div class="hierarchy-card"><div class="rank-badge">4</div><div class="hierarchy-name">Наставник</div><div class="hierarchy-title">Наставник</div><ul class="duty-list"><li><i class="fas fa-angle-right"></i> Обучение служителей и адептов</li><li><i class="fas fa-angle-right"></i> Поддержание порядка в составе</li><li><i class="fas fa-angle-right"></i> Проведение обрядов посвящения</li></ul></div>
-                <div class="hierarchy-card"><div class="rank-badge">5</div><div class="hierarchy-name">Служитель</div><div class="hierarchy-title">Служитель</div><ul class="duty-list"><li><i class="fas fa-angle-right"></i> Активное участие в жизни культа</li><li><i class="fas fa-angle-right"></i> Подношения алтарю</li><li><i class="fas fa-angle-right"></i> Изучение обрядов и ритуалов</li></ul></div>
-                <div class="hierarchy-card"><div class="rank-badge">6</div><div class="hierarchy-name">Адепт</div><div class="hierarchy-title">Ищущий путь</div><ul class="duty-list"><li><i class="fas fa-angle-right"></i> Прохождение испытательного срока</li><li><i class="fas fa-angle-right"></i> Знакомство с культом</li><li><i class="fas fa-angle-right"></i> Изучение основ</li><li><i class="fas fa-angle-right"></i> Обряд очищения</li></ul></div>
+                <div class="hierarchy-card"><div class="rank-badge">1</div><div class="hierarchy-name">Доума</div><div class="hierarchy-title">Лидер, основатель</div><ul><li><i class="fas fa-angle-right"></i> Источник всех истин</li><li><i class="fas fa-angle-right"></i> Проводник душ в Рай</li><li><i class="fas fa-angle-right"></i> Принимает ключевые решения</li></ul></div>
+                <div class="hierarchy-card"><div class="rank-badge">2</div><div class="hierarchy-name">Привязанная низшая луна</div><div class="hierarchy-title">Зам, Голос Доумы</div><ul><li><i class="fas fa-angle-right"></i> Исполнение воли Доумы</li><li><i class="fas fa-angle-right"></i> Принятие апостолов</li><li><i class="fas fa-angle-right"></i> Распоряжение делами</li></ul></div>
+                <div class="hierarchy-card"><div class="rank-badge">3</div><div class="hierarchy-name">Апостолы</div><div class="hierarchy-title">Советники</div><ul><li><i class="fas fa-angle-right"></i> Помощь лидеру</li><li><i class="fas fa-angle-right"></i> Слежка за порядком</li><li><i class="fas fa-angle-right"></i> Сбор подношений</li></ul></div>
+                <div class="hierarchy-card"><div class="rank-badge">4</div><div class="hierarchy-name">Наставник</div><div class="hierarchy-title">Наставник</div><ul><li><i class="fas fa-angle-right"></i> Обучение служителей</li><li><i class="fas fa-angle-right"></i> Проведение обрядов</li></ul></div>
+                <div class="hierarchy-card"><div class="rank-badge">5</div><div class="hierarchy-name">Служитель</div><div class="hierarchy-title">Служитель</div><ul><li><i class="fas fa-angle-right"></i> Активное участие</li><li><i class="fas fa-angle-right"></i> Подношения алтарю</li></ul></div>
+                <div class="hierarchy-card"><div class="rank-badge">6</div><div class="hierarchy-name">Адепт</div><div class="hierarchy-title">Ищущий путь</div><ul><li><i class="fas fa-angle-right"></i> Испытательный срок</li><li><i class="fas fa-angle-right"></i> Изучение основ</li></ul></div>
             </div>
         </div>
 
-        <!-- 6 заповедей -->
         <div class="vault">
             <h2 class="vault-title"><i class="fas fa-feather-alt"></i> Шесть заповедей Доумы</h2>
             <div class="commandment-grid">
-                <div class="commandment-item"><span class="commandment-num">一</span><div class="commandment-name">Радость бытия</div><div class="commandment-desc">Всегда улыбайся, твоя улыбка дарит счастье другим.</div></div>
-                <div class="commandment-item"><span class="commandment-num">二</span><div class="commandment-name">Отречение</div><div class="commandment-desc">Оставь привязанность к миру — он лишь тень истинного счастья.</div></div>
-                <div class="commandment-item"><span class="commandment-num">三</span><div class="commandment-name">Равенство</div><div class="commandment-desc">Перед Доумой все души равны, нет высших и низших.</div></div>
-                <div class="commandment-item"><span class="commandment-num">四</span><div class="commandment-name">Милосердие</div><div class="commandment-desc">Помогай другим обрести веру, даже если они сопротивляются.</div></div>
-                <div class="commandment-item"><span class="commandment-num">五</span><div class="commandment-name">Чистота</div><div class="commandment-desc">Содержи в чистоте тело и помыслы, Доума видит всё.</div></div>
-                <div class="commandment-item"><span class="commandment-num">六</span><div class="commandment-name">Жертва</div><div class="commandment-desc">Не бойся отдать часть себя — рай воздаст сторицей.</div></div>
+                <div class="commandment-item"><div style="background:var(--ice-glow); display:inline-block; padding:2px 14px; border-radius:40px; color:#06222e;">一</div><div class="commandment-name">Радость бытия</div><div>Всегда улыбайся, твоя улыбка дарит счастье другим.</div></div>
+                <div class="commandment-item"><div style="background:var(--ice-glow); display:inline-block; padding:2px 14px; border-radius:40px; color:#06222e;">二</div><div class="commandment-name">Отречение</div><div>Оставь привязанность к миру — он лишь тень истинного счастья.</div></div>
+                <div class="commandment-item"><div style="background:var(--ice-glow); display:inline-block; padding:2px 14px; border-radius:40px; color:#06222e;">三</div><div class="commandment-name">Равенство</div><div>Перед Доумой все души равны, нет высших и низших.</div></div>
+                <div class="commandment-item"><div style="background:var(--ice-glow); display:inline-block; padding:2px 14px; border-radius:40px; color:#06222e;">四</div><div class="commandment-name">Милосердие</div><div>Помогай другим обрести веру, даже если они сопротивляются.</div></div>
+                <div class="commandment-item"><div style="background:var(--ice-glow); display:inline-block; padding:2px 14px; border-radius:40px; color:#06222e;">五</div><div class="commandment-name">Чистота</div><div>Содержи в чистоте тело и помыслы, Доума видит всё.</div></div>
+                <div class="commandment-item"><div style="background:var(--ice-glow); display:inline-block; padding:2px 14px; border-radius:40px; color:#06222e;">六</div><div class="commandment-name">Жертва</div><div>Не бойся отдать часть себя — рай воздаст сторицей.</div></div>
             </div>
         </div>
     </section>
@@ -447,55 +481,52 @@
     <section id="ranks" class="page-section">
         <div class="hero">
             <h1 class="hero-title">Система повышения</h1>
-            <p class="hero-sub">Путь от адепта к луне</p>
+            <p class="hero-sub">Десять рангов демонов — путь к истинной силе</p>
         </div>
         <div class="vault">
-            <h2 class="vault-title"><i class="fas fa-chart-line"></i> Начисление баллов</h2>
+            <h2 class="vault-title"><i class="fas fa-star"></i> Начисление баллов (заслуги)</h2>
             <table class="points-table">
                 <thead><tr><th>Действие</th><th>Баллы</th></tr></thead>
                 <tbody>
                     <tr><td>Убийство истребителя</td><td>1 балл</td></tr>
                     <tr><td>Убийство столпа</td><td>2 балла</td></tr>
                     <tr><td>Захват точек (от 5)</td><td>5 баллов</td></tr>
-                    <tr><td>Участие в МП (тренировки и т.п.)</td><td>5 баллов</td></tr>
-                    <tr><td>Участие в МП отряда</td><td>5 баллов</td></tr>
-                    <tr><td>Участие в ивентах/событиях</td><td>10 баллов</td></tr>
+                    <tr><td>Участие в МП / тренировках</td><td>5 баллов</td></tr>
+                    <tr><td>Участие в ивентах / событиях</td><td>10 баллов</td></tr>
                     <tr><td>Участие в ГРП</td><td>15 баллов</td></tr>
-                    <tr><td>Проведение МП отряда</td><td>10 баллов</td></tr>
-                    <tr><td>Проведение сборов (на вылазки)</td><td>5 баллов</td></tr>
-                    <tr><td>Поручения от Лун (низшая)</td><td>10 баллов</td></tr>
-                    <tr><td>Поручения от Лун (высшая)</td><td>10 баллов</td></tr>
-                    <tr><td>Поручения от Апостолов</td><td>5 баллов</td></tr>
-                    <tr><td>Поручение от Лидера отряда</td><td>10 баллов</td></tr>
+                    <tr><td>Проведение МП отряда / сборов</td><td>5–10 баллов</td></tr>
+                    <tr><td>Поручения от Лун, Апостолов, Лидера</td><td>5–10 баллов</td></tr>
                 </tbody>
             </table>
-            <div class="info-note" style="margin-top: 16px; font-style:italic;">Лимиты: до 5 убийств истребителей за ранг, 3 убийства столпов. Остальные активы не лимитированы, но требуют подтверждения.</div>
+            <div class="promo-note" style="margin-top:0;">Баллы накапливаются за всё время пребывания в текущем ранге. Для перехода на следующий ранг необходимо набрать указанный порог и выполнить обязательные ритуалы.</div>
         </div>
 
         <div class="vault">
-            <h2 class="vault-title"><i class="fas fa-arrow-up"></i> Пороги повышения</h2>
-            <p>Для перехода на следующую ступень наберите необходимое количество баллов и выполните ритуал.</p>
+            <h2 class="vault-title"><i class="fas fa-chart-simple"></i> Ранги демонов и требования</h2>
             <div class="rank-selector">
                 <span>Текущий ранг:</span>
                 <select id="rankSelect">
-                    <option value="adept">Адепт</option>
-                    <option value="sluzhitel" selected>Служитель</option>
-                    <option value="nastavnik">Наставник</option>
-                    <option value="apostol">Апостол</option>
-                    <option value="prizyv">Привязанная низшая луна</option>
+                    <option value="Hinaga">Hinaga (низший)</option>
+                    <option value="Kagebosi">Kagebosi</option>
+                    <option value="Yamabiko">Yamabiko</option>
+                    <option value="Nure-Onna">Nure-Onna</option>
+                    <option value="Gaki">Gaki</option>
+                    <option value="Karakasi">Karakasi</option>
+                    <option value="Tsurube-Otosi">Tsurube-Otosi</option>
+                    <option value="Okami">Okami</option>
+                    <option value="Gashadakuro">Gashadakuro</option>
+                    <option value="Dzigoku">Dzigoku (высший)</option>
                 </select>
             </div>
             <div class="promo-block" id="promoBlock">
-                <div class="promo-header" style="display:flex; justify-content:space-between; flex-wrap:wrap;">
-                    <h3 class="promo-title" id="promoTitle">Переход со Служителя на Наставника</h3>
-                    <div class="promo-cooldown" style="background:rgba(127,193,217,0.2); padding:6px 16px; border-radius:40px;">🎯 <span id="reqPoints">20</span> баллов</div>
-                </div>
-                <div id="reqGrid" style="margin-top: 20px;">
-                    <div class="requirement-item" style="display:flex; justify-content:space-between; border-bottom:1px dashed var(--glass-border); padding:8px 0;"><span>Необходимый порог баллов</span><strong id="pointsNeeded">20</strong></div>
-                    <div class="requirement-item" style="display:flex; justify-content:space-between; padding:8px 0;"><span>Обряд посвящения / клятва верности</span><span>Обязательно</span></div>
-                    <div class="requirement-item" style="display:flex; justify-content:space-between; padding:8px 0;"><span>Одобрение наставника или апостола</span><span>Требуется</span></div>
-                </div>
-                <div class="promo-note" style="margin-top: 20px; font-size:0.95rem;">Ступени: Адепт (10 баллов) → Служитель (20) → Наставник (30) → Апостол (40) → Привязанная низшая луна (50). Каждый этап открывает новые ритуалы.</div>
+                <div class="promo-title" id="promoTitle">Переход с Hinaga на Kagebosi</div>
+                <div class="points-badge" id="pointsNeededDisplay">🎯 5 баллов</div>
+                <ul class="requirements-list" id="requirementsList">
+                    <li>Необходимый порог баллов: 5</li>
+                    <li>Пройти обряд посвящения</li>
+                    <li>Пробудить свою магию крови</li>
+                </ul>
+                <div class="promo-note" id="promoNote">Для повышения ранга необходимо набрать указанное количество баллов (суммарно за всё время в текущем ранге) и выполнить все обязательные ритуалы. После выполнения обратитесь к Наставнику или Луне для фиксации.</div>
             </div>
         </div>
     </section>
@@ -509,7 +540,7 @@
         <div class="vault">
             <h2 class="vault-title"><i class="fas fa-hands-helping"></i> Обучение адепта</h2>
             <div class="stage-block"><div class="stage-title">Стадия 1: Приветствие</div><p>Встретив ищущего, проводи его к алтарю. Предложи ему воду и хлеб. Обратись с улыбкой и спроси, что привело его в храм.</p><div class="cmd-box">"Брат/сестра, Доума видит твоё сердце. Расскажи о желании обрести рай."</div></div>
-            <div class="stage-block"><div class="stage-title">Стадия 2: Очищение</div><p>Проведи обряд омовения. Окропи водой с лепестками, приговаривая: "Смой всё мирское, оставь только свет".</p><div class="warning" style="background:rgba(127,193,217,0.1); border-left:3px solid var(--accent-light); padding:12px;">Важно: Сохраняй доброжелательность и улыбку.</div></div>
+            <div class="stage-block"><div class="stage-title">Стадия 2: Очищение</div><p>Проведи обряд омовения. Окропи водой с лепестками, приговаривая: "Смой всё мирское, оставь только свет".</p><div style="background:rgba(108,166,201,0.15); border-left:3px solid var(--ice-glow); padding:12px;">Важно: Сохраняй доброжелательность и улыбку.</div></div>
             <div class="stage-block"><div class="stage-title">Стадия 3: Посвящение</div><p>Зачитай адепту шесть заповедей Доумы, объясни иерархию. Покажи, как совершать поклоны и петь гимны.</p></div>
             <div class="stage-block"><div class="stage-title">Стадия 4: Испытание веры</div><p>Попроси адепта совершить первое подношение и публично произнести имя Доумы. Если справился — обряд завершён.</p></div>
             <div class="stage-block"><div class="stage-title">Стадия 5: Заключение</div><p>Проведи нового адепта по храму, покажи алтарь, место для пожертвований. Заверши общей молитвой. Отправь отчёт наставнику в Discord.</p></div>
@@ -528,20 +559,37 @@
                 <thead><tr><th>Имя</th><th>Дискорд</th><th>Ранг</th><th>Должность</th></tr></thead>
                 <tbody>
                     <tr><td>Доума</td><td><span class="discord-tag">doum3_ever</span></td><td><span class="rank-pill">Лидер</span></td><td>Основатель</td></tr>
-                    <tr><td class="empty-slot">Вакансия</td><td class="empty-slot">-</td><td><span class="rank-pill">Низшая луна</span></td><td>Зам. Голос Доумы</td></tr>
+                    <tr><td class="empty-slot">Вакансия</td><td class="empty-slot">-</td><td><span class="rank-pill">Привязанная луна</span></td><td>Зам. Голос Доумы</td></tr>
                     <tr><td class="empty-slot">Вакансия</td><td class="empty-slot">-</td><td><span class="rank-pill">Апостол</span></td><td>Советник</td></tr>
                     <tr><td class="empty-slot">Вакансия</td><td class="empty-slot">-</td><td><span class="rank-pill">Наставник</span></td><td>Наставник</td></tr>
                     <tr><td>Акира Накамура</td><td><span class="discord-tag">akira_n</span></td><td><span class="rank-pill">Служитель</span></td><td>Служитель</td></tr>
                     <tr><td class="empty-slot">-</td><td class="empty-slot">-</td><td><span class="rank-pill">Адепт</span></td><td>Ищущий</td></tr>
                 </tbody>
             </table>
-            <div class="progress-track mt-3"><div class="progress-fill" style="width: 28%;"></div></div>
+            <div class="progress-track"><div class="progress-fill" style="width: 28%;"></div></div>
             <div style="display: flex; justify-content: space-between;"><span>Заполненность состава: 28%</span><span>Примите свет в свои души</span></div>
         </div>
     </section>
 </div>
 
 <script>
+    // Бесконечный снегопад
+    const snowContainer = document.getElementById('snowContainer');
+    const snowSymbols = ['❄️', '❅', '❆', '✻', '❋'];
+    function createSnowflake() {
+        const snow = document.createElement('div');
+        snow.classList.add('snowflake');
+        snow.textContent = snowSymbols[Math.floor(Math.random() * snowSymbols.length)];
+        snow.style.fontSize = (0.7 + Math.random() * 1.2) + 'rem';
+        snow.style.left = Math.random() * 100 + '%';
+        snow.style.animationDuration = 5 + Math.random() * 8 + 's';
+        snow.style.opacity = 0.6 + Math.random() * 0.3;
+        snowContainer.appendChild(snow);
+        snow.addEventListener('animationend', () => snow.remove());
+    }
+    setInterval(() => { if (snowContainer.children.length < 150) createSnowflake(); }, 180);
+    for (let i = 0; i < 40; i++) setTimeout(() => createSnowflake(), i * 50);
+
     // Навигация
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', function(e) {
@@ -549,7 +597,7 @@
             document.querySelectorAll('.page-section, .nav-link').forEach(el => el.classList.remove('active'));
             document.getElementById(this.dataset.section).classList.add('active');
             this.classList.add('active');
-            if(document.querySelector('.nav-links')) document.querySelector('.nav-links').classList.remove('active');
+            document.querySelector('.nav-links')?.classList.remove('active');
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     });
@@ -558,32 +606,48 @@
     });
     function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
 
-    // Система повышения динамическая
-    const rankData = {
-        adept: { next: "Служитель", points: 10, addReq: "Пройти обряд очищения" },
-        sluzhitel: { next: "Наставник", points: 20, addReq: "Провести обучение адепта" },
-        nastavnik: { next: "Апостол", points: 30, addReq: "Подготовить двух служителей" },
-        apostol: { next: "Привязанная низшая луна", points: 40, addReq: "Организовать великий ритуал" },
-        prizyv: { next: "Вершина", points: 50, addReq: "Достигнуто, слава Доуме" }
+    // Данные рангов (баллы + ритуалы)
+    const ranksRequirements = {
+        Hinaga: { next: "Kagebosi", points: 5, requirements: ["Необходимый порог баллов: 5", "Пройти обряд посвящения", "Пробудить свою магию крови"] },
+        Kagebosi: { next: "Yamabiko", points: 10, requirements: ["Необходимый порог баллов: 10", "Съесть пять истребителей", "Пройти проверку на знание клятвы крови у инструкторов или Лун", "Принять участие в любой тренировке"] },
+        Yamabiko: { next: "Nure-Onna", points: 15, requirements: ["Необходимый порог баллов: 15", "Принести пользу для храма (уборка, шитье одеяний, создание ритуальных предметов; минимум 10 рп действий)", "Минимум одна тренировка"] },
+        "Nure-Onna": { next: "Gaki", points: 20, requirements: ["Необходимый порог баллов: 20", "Выполнить поручение от Апостола или выше", "Принять участие в захвате 10 точек", "Съесть семь истребителей"] },
+        Gaki: { next: "Karakasi", points: 25, requirements: ["Необходимый порог баллов: 25", "Доказать свою силу на деле. Сразиться с инструктором или Луной (оставить меньше 50% хп)", "Поучаствовать в захвате важной точки", "Провести чтение мантр под наблюдением Наставника или выше"] },
+        Karakasi: { next: "Tsurube-Otosi", points: 30, requirements: ["Необходимый порог баллов: 30", "Убраться в храме", "Убить 10 истребителей и по РП добыть их кровь", "Поучаствовать в тренировке от любой Низшей Луны"] },
+        "Tsurube-Otosi": { next: "Okami", points: 35, requirements: ["Необходимый порог баллов: 35", "Побывать минимум на двух ивентах или мероприятиях", "Приготовить ужин для всех последователей", "Выполнить поручение от Доумы"] },
+        Okami: { next: "Gashadakuro", points: 45, requirements: ["Необходимый порог баллов: 45", "Похитить истребителя женского пола и принести Доуме", "Получить одобрение от всех главенствующих лиц (Доума, его заместитель и Апостол)", "Пройти тренировку от Доумы", "Принять участие в двух уроках Наставника"] },
+        Gashadakuro: { next: "Dzigoku", points: 50, requirements: ["Необходимый порог баллов: 50", "Устранить двух женщин-столпов и принести их клинки Доуме", "Убраться во всем храме в одиночку", "Сразиться с Доумой и нанести ему критический урон или вовсе победить", "Получить одобрение от Прародителя"] },
+        Dzigoku: { next: "Вершина", points: 60, requirements: ["Необходимый порог баллов: 60", "Поздравляем! Вы достигли высшего ранга демона. Отныне вы — воплощение воли Доумы. Слава Вечному Раю!"] }
     };
-    const rankSelectElem = document.getElementById('rankSelect');
-    const promoTitleElem = document.getElementById('promoTitle');
-    const reqPointsSpan = document.getElementById('reqPoints');
-    const pointsNeededSpan = document.getElementById('pointsNeeded');
 
-    function updatePromo() {
-        let val = rankSelectElem.value;
-        let data = rankData[val];
+    const rankSelect = document.getElementById('rankSelect');
+    const promoTitle = document.getElementById('promoTitle');
+    const pointsNeededDisplay = document.getElementById('pointsNeededDisplay');
+    const requirementsList = document.getElementById('requirementsList');
+    const promoNote = document.getElementById('promoNote');
+
+    function updateRankInfo() {
+        const current = rankSelect.value;
+        const data = ranksRequirements[current];
         if (!data) return;
-        let currentName = rankSelectElem.options[rankSelectElem.selectedIndex].text;
-        promoTitleElem.innerText = `Переход с ${currentName} на ${data.next}`;
-        reqPointsSpan.innerText = data.points;
-        pointsNeededSpan.innerText = data.points;
-        let addReqDiv = document.querySelector('#reqGrid .requirement-item:last-child');
-        if (addReqDiv) addReqDiv.innerHTML = `<span>${data.addReq}</span><span>Обязательно</span>`;
+        const currentName = rankSelect.options[rankSelect.selectedIndex].text.split(' ')[0];
+        promoTitle.innerText = `Переход с ${currentName} на ${data.next}`;
+        pointsNeededDisplay.innerText = `🎯 ${data.points} баллов`;
+        requirementsList.innerHTML = '';
+        data.requirements.forEach(req => {
+            const li = document.createElement('li');
+            li.innerHTML = req;
+            requirementsList.appendChild(li);
+        });
+        if (current === 'Dzigoku') {
+            promoNote.innerText = 'Вы достигли абсолютной силы. Дальше только служение Доуме и помощь в ведении культа. Слава Вечному Раю!';
+        } else {
+            promoNote.innerText = 'Для повышения ранга необходимо набрать указанное количество баллов (суммарно за всё время в текущем ранге) и выполнить все обязательные ритуалы. После выполнения обратитесь к Наставнику или Луне для фиксации нового ранга.';
+        }
     }
-    if (rankSelectElem) rankSelectElem.addEventListener('change', updatePromo);
-    updatePromo();
+
+    rankSelect.addEventListener('change', updateRankInfo);
+    updateRankInfo();
 </script>
 </body>
 </html>
